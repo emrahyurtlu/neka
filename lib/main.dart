@@ -9,7 +9,7 @@ class Neka extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Neka App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: ColorPrimary,
