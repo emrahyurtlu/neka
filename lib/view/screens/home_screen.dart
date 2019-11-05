@@ -4,6 +4,7 @@ import 'package:neka/settings/font_families.dart';
 import 'package:neka/view/components/bottom_nav_component.dart';
 import 'package:neka/view/components/drawer_component.dart';
 import 'package:neka/view/screens/home_partials/home_main.dart';
+import 'package:neka/view/screens/home_partials/near_me.dart';
 
 import 'home_partials/home_main.dart';
 
@@ -23,7 +24,7 @@ class _HomeState extends State<Home> {
 
   List<Widget> _tabContents = [
     HomeMain(),
-    Text('Tab 2'),
+    NearMe(),
     Text('Tab 3'),
   ];
 
