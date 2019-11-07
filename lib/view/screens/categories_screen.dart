@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
 import 'package:neka/utils/console_log_util.dart';
+import 'package:neka/utils/route_util.dart';
 import 'package:neka/view/components/category_component.dart';
 import 'package:neka/view/components/header.dart';
+import 'package:neka/view/screens/category_detail_screen.dart';
 
 class Categories extends StatefulWidget {
   @override
@@ -45,6 +47,7 @@ class _CategoriesState extends State<Categories> {
                       width: 70,
                       height: 70,
                       onTap: () {
+                        redirectTo(context, CategoryDetail());
                         consoleLog('Kategori: Temel Gıda');
                       },
                     ),
