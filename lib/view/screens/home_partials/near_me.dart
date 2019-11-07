@@ -18,7 +18,7 @@ class _NearMeState extends State<NearMe> {
       child: ListView(
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(top: 20, bottom: 20),
+            padding: const EdgeInsets.only(top: 20, bottom: 10),
             child: Header(
               'Yakındaki Marketler',
               fontSize: 16,

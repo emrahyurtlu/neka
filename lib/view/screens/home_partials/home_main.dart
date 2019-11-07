@@ -23,7 +23,7 @@ class _HomeMainState extends State<HomeMain> {
             children: <Widget>[
               //Your location
               Padding(
-                  padding: const EdgeInsets.only(top: 10),
+                  padding: const EdgeInsets.only(top: 20),
                   child: Header(
                     'Konumunuz',
                     fontSize: 16,
