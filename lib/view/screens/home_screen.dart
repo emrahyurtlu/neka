@@ -16,7 +16,6 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _currentTab = 0;
-  List<String> _titles = ["Akış", "Favorilerim", "Keşfet"];
 
   @override
   void initState() {
@@ -27,6 +26,7 @@ class _HomeState extends State<Home> {
     HomeMain(),
     NearMe(),
     Categories(),
+    Text('Arama Ekranı'),
   ];
 
   void onTabTapped(int index) {
@@ -46,16 +46,8 @@ class _HomeState extends State<Home> {
           backgroundColor: ColorWhite,
           centerTitle: true,
           iconTheme: IconThemeData(color: ColorText),
-          actions: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(right: 10),
-              child: Icon(Icons.search),
-            ),
-          ],
         ),
-        drawer: DrawerComponent(
-            //user: AppData.user,
-            ),
+        drawer: DrawerComponent(),
         body: _tabContents[_currentTab],
         bottomNavigationBar: BottomNavigationComponent(
           currentIndex: _currentTab,

@@ -24,6 +24,7 @@ class _BottomNavigationComponentState extends State<BottomNavigationComponent> {
       showSelectedLabels: true,
       selectedFontSize: 13,
       unselectedFontSize: 13,
+      type: BottomNavigationBarType.fixed,
       onTap: widget.onTap,
       items: [
         BottomNavigationBarItem(
@@ -35,7 +36,8 @@ class _BottomNavigationComponentState extends State<BottomNavigationComponent> {
           title: Text('Yakındakiler'),
         ),
         BottomNavigationBarItem(
-            icon: Icon(Icons.category), title: Text('Kategoriler')),
+            icon: Icon(Icons.apps), title: Text('Kategoriler')),
+        BottomNavigationBarItem(icon: Icon(Icons.search), title: Text('Ara')),
       ],
       backgroundColor: ColorWhite,
       selectedItemColor: ColorPrimary,
