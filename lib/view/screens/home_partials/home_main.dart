@@ -3,9 +3,12 @@ import 'package:flutter/rendering.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
 import 'package:neka/utils/console_log_util.dart';
+import 'package:neka/utils/route_util.dart';
 import 'package:neka/view/components/category_component.dart';
 import 'package:neka/view/components/header.dart';
 import 'package:neka/view/components/product_component.dart';
+import 'package:neka/view/screens/categories_screen.dart';
+import 'package:neka/view/screens/category_detail_screen.dart';
 
 class HomeMain extends StatefulWidget {
   @override
@@ -77,7 +80,7 @@ class _HomeMainState extends State<HomeMain> {
                       color: ColorText,
                       link: true,
                       linkOnTap: () {
-                        consoleLog('Kategori sayfasına gönderildi.');
+                        redirectTo(context, Categories(showAppbar: true,));
                       },
                     )
                   ],
@@ -94,49 +97,49 @@ class _HomeMainState extends State<HomeMain> {
                       imageUrl: 'assets/images/del/cat1.png',
                       title: 'Temel Gıda',
                       onTap: () {
-                        consoleLog('Kategori: Temel Gıda');
+                        redirectTo(context, CategoryDetail());
                       },
                     ),
                     CategoryComponent(
                       imageUrl: 'assets/images/del/cat2.png',
                       title: 'Temizlik',
                       onTap: () {
-                        consoleLog('Kategori: Temizlik');
+                        redirectTo(context, CategoryDetail());
                       },
                     ),
                     CategoryComponent(
                       imageUrl: 'assets/images/del/cat3.png',
                       title: 'Et Ürünleri',
                       onTap: () {
-                        consoleLog('Kategori: Et Ürünleri');
+                        redirectTo(context, CategoryDetail());
                       },
                     ),
                     CategoryComponent(
                       imageUrl: 'assets/images/del/cat4.png',
                       title: 'Süt Ürünleri',
                       onTap: () {
-                        consoleLog('Kategori: Süt Ürünleri');
+                        redirectTo(context, CategoryDetail());
                       },
                     ),
                     CategoryComponent(
                       imageUrl: 'assets/images/del/cat5.png',
                       title: 'Kişisel Bakım',
                       onTap: () {
-                        consoleLog('Kategori: Kişisel Bakım');
+                        redirectTo(context, CategoryDetail());
                       },
                     ),
                     CategoryComponent(
                       imageUrl: 'assets/images/del/cat6.png',
                       title: 'Manav',
                       onTap: () {
-                        consoleLog('Kategori: Manav');
+                        redirectTo(context, CategoryDetail());
                       },
                     ),
                     CategoryComponent(
                       imageUrl: 'assets/images/del/cat7.png',
                       title: 'Kuruyemiş',
                       onTap: () {
-                        consoleLog('Kategori: Kuruyemiş');
+                        redirectTo(context, CategoryDetail());
                       },
                     ),
                   ],

@@ -5,7 +5,7 @@ import 'package:neka/view/components/bottom_nav_component.dart';
 import 'package:neka/view/components/drawer_component.dart';
 import 'package:neka/view/screens/categories_screen.dart';
 import 'package:neka/view/screens/home_partials/home_main.dart';
-import 'package:neka/view/screens/home_partials/near_me.dart';
+import 'package:neka/view/screens/near_me.dart';
 
 import 'home_partials/home_main.dart';
 
@@ -15,7 +15,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int _currentTab = 0;
+  int currentTab = 0;
 
   @override
   void initState() {
@@ -31,7 +31,7 @@ class _HomeState extends State<Home> {
 
   void onTabTapped(int index) {
     setState(() {
-      _currentTab = index;
+      currentTab = index;
     });
   }
 
@@ -48,9 +48,9 @@ class _HomeState extends State<Home> {
           iconTheme: IconThemeData(color: ColorText),
         ),
         drawer: DrawerComponent(),
-        body: _tabContents[_currentTab],
+        body: _tabContents[currentTab],
         bottomNavigationBar: BottomNavigationComponent(
-          currentIndex: _currentTab,
+          currentIndex: currentTab,
           onTap: onTabTapped,
         ),
       ),

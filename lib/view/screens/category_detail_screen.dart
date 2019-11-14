@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
 import 'package:neka/utils/console_log_util.dart';
-import 'package:neka/view/components/bottom_nav_component.dart';
 import 'package:neka/view/components/chip_component.dart';
 import 'package:neka/view/components/header.dart';
 import 'package:neka/view/components/product_component.dart';
@@ -222,10 +221,6 @@ class _CategoryDetailState extends State<CategoryDetail>
             ),
           )
         ],
-      ),
-      bottomNavigationBar: BottomNavigationComponent(
-        currentIndex: 2,
-        onTap: onTabTapped,
       ),
     );
   }

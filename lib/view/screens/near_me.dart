@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
 import 'package:neka/utils/console_log_util.dart';
+import 'package:neka/utils/route_util.dart';
 import 'package:neka/view/components/header.dart';
 import 'package:neka/view/components/store_component.dart';
+import 'package:neka/view/screens/business_detail.dart';
 
 class NearMe extends StatefulWidget {
   @override
@@ -31,7 +33,8 @@ class _NearMeState extends State<NearMe> {
           ),
           StoreComponent(
               onTap: () {
-                consoleLog('Bim/Yeşiltepe');
+                redirectTo(context, BusinessDetail());
+
               },
               title: 'Bim/Yeşiltepe',
               image:
