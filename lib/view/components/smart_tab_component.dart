@@ -7,8 +7,11 @@ class SmartTab extends StatefulWidget {
   final List<Tab> tabs;
   final List<Page> pages;
   EdgeInsetsGeometry containerPadding;
+  Color background;
+  Color indicatorColor;
+  Color labelColor;
 
-  SmartTab({@required this.tabs, @required this.pages, this.containerPadding})
+  SmartTab({@required this.tabs, @required this.pages, this.containerPadding, this.background = ColorPrimary, this.indicatorColor = ColorWhite, this.labelColor = ColorWhite})
       : assert(tabs.isNotEmpty, "Tab length is equal to 0"),
         assert(pages.isNotEmpty, "Tab content length is equal to 0"),
         assert(tabs.length == pages.length,
@@ -33,7 +36,7 @@ class _SmartTabState extends State<SmartTab>
     return Column(
       children: <Widget>[
         Container(
-          color: ColorPrimary,
+          color: widget.background,
           width: double.infinity,
           height: 50,
           child: TabBar(
@@ -42,7 +45,8 @@ class _SmartTabState extends State<SmartTab>
             tabs: widget.tabs,
             key: GlobalKey(),
             labelPadding: EdgeInsets.only(left: 10, right: 10),
-            indicatorColor: ColorWhite,
+            indicatorColor: widget.indicatorColor,
+            labelColor: widget.labelColor,
           ),
         ),
         Expanded(

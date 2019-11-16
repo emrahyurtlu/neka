@@ -58,11 +58,6 @@ class _DrawerComponentState extends State<DrawerComponent> {
           ),
           Divider(),
           ListTile(
-            title: Text("Adreslerim"),
-            onTap: () {},
-          ),
-          Divider(),
-          ListTile(
             title: Text("Bildirimler"),
             onTap: () {},
           ),

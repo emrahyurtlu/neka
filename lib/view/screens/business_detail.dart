@@ -4,7 +4,9 @@ import 'package:neka/settings/font_families.dart';
 import 'package:neka/utils/console_log_util.dart';
 import 'package:neka/view/components/chip_component.dart';
 import 'package:neka/view/components/header.dart';
+import 'package:neka/view/components/product_component.dart';
 import 'package:neka/view/components/property_component.dart';
+import 'package:neka/view/components/smart_tab_component.dart';
 
 class BusinessDetail extends StatefulWidget {
   @override
@@ -27,8 +29,9 @@ class _BusinessDetailState extends State<BusinessDetail> {
         ),
         iconTheme: IconThemeData(color: ColorPrimary),
       ),
-      body: Column(
+      body: ListView(
         children: <Widget>[
+          // Logo
           Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Center(
@@ -45,6 +48,8 @@ class _BusinessDetailState extends State<BusinessDetail> {
                       ))),
             ),
           ),
+
+          // İşletme Adı
           Padding(
             padding: const EdgeInsets.only(top: 5),
             child: Center(
@@ -57,6 +62,8 @@ class _BusinessDetailState extends State<BusinessDetail> {
               ),
             ),
           ),
+
+          // İşletme Bilgileri
           Padding(
             padding: EdgeInsets.only(top: 5),
             child: Row(
@@ -78,6 +85,8 @@ class _BusinessDetailState extends State<BusinessDetail> {
               ],
             ),
           ),
+
+          // Aksiyon Butonları
           Padding(
             padding: EdgeInsets.only(top: 10),
             child: Row(
@@ -98,22 +107,174 @@ class _BusinessDetailState extends State<BusinessDetail> {
               ],
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 10),
-            child: Container(
-              width: double.infinity,
-              padding: EdgeInsets.only(top: 30, left: 10, right: 10),
-              decoration: BoxDecoration(
-                  color: ColorWhite,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20))),
-              child: Header(
-                'Ürünler',
-                fontSize: 16,
-                fontFamily: FontFamily.AvenirHeavy,
-                color: ColorText,
-              ),
+
+          Container(
+            width: double.infinity,
+            padding: EdgeInsets.only(top: 30),
+            margin: EdgeInsets.only(top: 10),
+            decoration: BoxDecoration(
+                color: ColorWhite,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20))),
+            child: Column(
+              children: <Widget>[
+                Header(
+                  'Ürünler',
+                  fontSize: 16,
+                  fontFamily: FontFamily.AvenirHeavy,
+                  color: ColorText,
+                ),
+
+                // Tabs
+                Container(
+                  height: 100,
+                  margin: EdgeInsets.only(top: 20),
+                  child: SmartTab(
+                    background: ColorLight,
+                    indicatorColor: ColorPrimary,
+                    labelColor: ColorPrimary,
+                    tabs: <Tab>[
+                      Tab(
+                        text: 'Hepsi',
+                      ),
+                      Tab(
+                        text: 'Temel Gıda',
+                      ),
+                      Tab(
+                        text: 'Temizlik',
+                      ),
+                      Tab(
+                        text: 'Et Ürünleri',
+                      ),
+                      Tab(
+                        text: 'Süt Ürünleri',
+                      ),
+                    ],
+                    pages: <Page>[
+                      Page(
+                        child: Text('Hepsi'),
+                      ),
+                      Page(
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: <Widget>[
+                            ChipComponent(
+                              label: 'Hepsi',
+                              onTap: () {
+                                consoleLog('Hepsi');
+                              },
+                            ),
+                            ChipComponent(
+                              label: 'Makarna',
+                              onTap: () {
+                                consoleLog('Makarna');
+                              },
+                            ),
+                            ChipComponent(
+                              label: 'Salça',
+                              onTap: () {
+                                consoleLog('Salça');
+                              },
+                            ),
+                            ChipComponent(
+                              label: 'Sıvı Yağ',
+                              onTap: () {
+                                consoleLog('Sıvı Yağ');
+                              },
+                            ),
+                            ChipComponent(
+                              label: 'Pirinç',
+                              onTap: () {
+                                consoleLog('Pirinç');
+                              },
+                            ),
+                            ChipComponent(
+                              label: 'Çay',
+                              onTap: () {
+                                consoleLog('Çay');
+                              },
+                            ),
+                            ChipComponent(
+                              label: 'Şeker',
+                              onTap: () {
+                                consoleLog('Şeker');
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      Page(
+                        child: Text('Temizlik'),
+                      ),
+                      Page(
+                        child: Text('Et Ürünleri'),
+                      ),
+                      Page(
+                        child: Text('Süt Ürünleri'),
+                      ),
+                    ],
+                    containerPadding: EdgeInsets.only(top: 10),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 10, right: 10, top: 20),
+                  child: Column(
+                    children: <Widget>[
+                      ProductComponent(
+                          onTap: () {
+                            consoleLog('Hello');
+                          },
+                          title: 'Çaykur Kamelya Çayı 1000gr',
+                          image:
+                              'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                          favoriteOnPressedCallback: () {
+                            consoleLog('Hello');
+                          }),
+                      ProductComponent(
+                          onTap: () {
+                            consoleLog('Hello');
+                          },
+                          title: 'Çaykur Kamelya Çayı 1000gr',
+                          image:
+                              'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                          favoriteOnPressedCallback: () {
+                            consoleLog('Hello');
+                          }),
+                      ProductComponent(
+                          onTap: () {
+                            consoleLog('Hello');
+                          },
+                          title: 'Çaykur Kamelya Çayı 1000gr',
+                          image:
+                              'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                          favoriteOnPressedCallback: () {
+                            consoleLog('Hello');
+                          }),
+                      ProductComponent(
+                          onTap: () {
+                            consoleLog('Hello');
+                          },
+                          title: 'Çaykur Kamelya Çayı 1000gr',
+                          image:
+                              'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                          favoriteOnPressedCallback: () {
+                            consoleLog('Hello');
+                          }),
+                      ProductComponent(
+                          onTap: () {
+                            consoleLog('Hello');
+                          },
+                          title: 'Çaykur Kamelya Çayı 1000gr',
+                          image:
+                              'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                          favoriteOnPressedCallback: () {
+                            consoleLog('Hello');
+                          }),
+                    ],
+                  ),
+                )
+              ],
             ),
           ),
         ],

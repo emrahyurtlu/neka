@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
 import 'package:neka/view/components/bottom_nav_component.dart';
+import 'package:neka/view/components/bottom_sheet_component.dart';
 import 'package:neka/view/components/drawer_component.dart';
 import 'package:neka/view/screens/categories_screen.dart';
 import 'package:neka/view/screens/home_partials/home_main.dart';
@@ -26,13 +27,20 @@ class _HomeState extends State<Home> {
     HomeMain(),
     NearMe(),
     Categories(),
-    Text('Arama Ekranı'),
   ];
 
   void onTabTapped(int index) {
-    setState(() {
-      currentTab = index;
-    });
+    if (index == 3) {
+      openBottomSheet(
+          context,
+          Column(
+            children: <Widget>[Text('Selam')],
+          ));
+    }
+    if (index != 3)
+      setState(() {
+        currentTab = index;
+      });
   }
 
   @override

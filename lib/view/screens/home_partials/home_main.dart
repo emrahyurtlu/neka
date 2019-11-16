@@ -80,7 +80,11 @@ class _HomeMainState extends State<HomeMain> {
                       color: ColorText,
                       link: true,
                       linkOnTap: () {
-                        redirectTo(context, Categories(showAppbar: true,));
+                        redirectTo(
+                            context,
+                            Categories(
+                              showAppbar: true,
+                            ));
                       },
                     )
                   ],
