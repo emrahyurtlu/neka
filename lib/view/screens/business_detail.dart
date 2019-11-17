@@ -131,9 +131,6 @@ class _BusinessDetailState extends State<BusinessDetail> {
                   height: 100,
                   margin: EdgeInsets.only(top: 20),
                   child: SmartTab(
-                    background: ColorLight,
-                    indicatorColor: ColorPrimary,
-                    labelColor: ColorPrimary,
                     tabs: <Tab>[
                       Tab(
                         text: 'Hepsi',

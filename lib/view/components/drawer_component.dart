@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:neka/settings/colors.dart';
+import 'package:neka/utils/route_util.dart';
+import 'package:neka/view/screens/profile_screen.dart';
 
 class DrawerComponent extends StatefulWidget {
   @override
@@ -49,7 +51,9 @@ class _DrawerComponentState extends State<DrawerComponent> {
 
           ListTile(
             title: Text("Profilim"),
-            onTap: () {},
+            onTap: () {
+              redirectTo(context, ProfileScreen());
+            },
           ),
           Divider(),
           ListTile(
