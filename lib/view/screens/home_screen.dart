@@ -50,10 +50,9 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           title: Text('Title',
               style:
-                  TextStyle(fontFamily: FontFamily.AvenirMedium, fontSize: 16)),
+                  TextStyle(fontFamily: FontFamily.AvenirMedium, fontSize: 16, color: ColorPrimary)),
           backgroundColor: ColorWhite,
-          centerTitle: true,
-          iconTheme: IconThemeData(color: ColorText),
+          iconTheme: IconThemeData(color: ColorPrimary),
         ),
         drawer: DrawerComponent(),
         body: _tabContents[currentTab],

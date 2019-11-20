@@ -34,7 +34,6 @@ class _NearMeState extends State<NearMe> {
           StoreComponent(
               onTap: () {
                 redirectTo(context, BusinessDetail());
-
               },
               title: 'Bim/Yeşiltepe',
               image:

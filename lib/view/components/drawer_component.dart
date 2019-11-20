@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/utils/route_util.dart';
+import 'package:neka/view/screens/favorites_screen.dart';
 import 'package:neka/view/screens/profile_screen.dart';
 
 class DrawerComponent extends StatefulWidget {
@@ -58,13 +59,15 @@ class _DrawerComponentState extends State<DrawerComponent> {
           Divider(),
           ListTile(
             title: Text("Favorilerim"),
-            onTap: () {},
+            onTap: () {
+              redirectTo(context, FavoritesScreen());
+            },
           ),
-          Divider(),
+          /*Divider(),
           ListTile(
             title: Text("Bildirimler"),
             onTap: () {},
-          ),
+          ),*/
           Divider(),
           //Divider(),
           ListTile(
