@@ -3,7 +3,7 @@ import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
 import 'package:neka/settings/styles.dart';
 import 'package:neka/utils/console_log_util.dart';
-import 'package:neka/view/components/header.dart';
+import 'package:neka/view/components/header_component.dart';
 import 'package:neka/view/components/product_component.dart';
 
 class FavoritesScreen extends StatefulWidget {

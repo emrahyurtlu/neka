@@ -4,8 +4,11 @@ import 'package:neka/settings/colors.dart';
 class ChipComponent extends StatefulWidget {
   final String label;
   final VoidCallback onTap;
+  final Color backgroundColor;
 
-  ChipComponent({@required this.label, @required this.onTap});
+  const ChipComponent(
+      {Key key, this.label, this.onTap, this.backgroundColor = ColorSecondary})
+      : super(key: key);
 
   @override
   _ChipComponentState createState() => _ChipComponentState();
@@ -20,7 +23,7 @@ class _ChipComponentState extends State<ChipComponent> {
         margin: EdgeInsets.only(right: 10),
         child: Chip(
           label: Text(widget.label),
-          backgroundColor: ColorSecondary,
+          backgroundColor: widget.backgroundColor,
           labelStyle: TextStyle(color: ColorWhite),
           labelPadding: EdgeInsets.only(left: 10, right: 10),
         ),

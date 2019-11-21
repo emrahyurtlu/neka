@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
 import 'package:neka/view/components/bottom_nav_component.dart';
-import 'package:neka/view/components/bottom_sheet_component.dart';
 import 'package:neka/view/components/drawer_component.dart';
 import 'package:neka/view/screens/categories_screen.dart';
 import 'package:neka/view/screens/home_partials/home_main.dart';
@@ -30,17 +29,46 @@ class _HomeState extends State<Home> {
   ];
 
   void onTabTapped(int index) {
-    if (index == 3) {
-      openBottomSheet(
-          context,
-          Column(
-            children: <Widget>[Text('Selam')],
+    TextEditingController textEditingController = TextEditingController();
+    /*if (index == 3) {
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Header(
+                  'Ara',
+                  fontSize: 16,
+                  fontFamily: FontFamily.AvenirHeavy,
+                  color: ColorText,
+                ),
+                Form(
+                  child: Row(
+                    children: <Widget>[
+                      TextInputComponent(
+                        textEditingController,
+                        labelText: 'Ara',
+                        contentPadding: EdgeInsets.all(5),
+                      ),
+                      ChipComponent(
+                        label: 'Ara',
+                        backgroundColor: ColorPrimary,
+                        onTap: () {
+                          consoleLog(
+                              'Aranacak metin: ' + textEditingController.text);
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ));
-    }
-    if (index != 3)
-      setState(() {
-        currentTab = index;
-      });
+    }*/
+    setState(() {
+      currentTab = index;
+    });
   }
 
   @override
@@ -48,9 +76,11 @@ class _HomeState extends State<Home> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Title',
-              style:
-                  TextStyle(fontFamily: FontFamily.AvenirMedium, fontSize: 16, color: ColorPrimary)),
+          title: Text('Neka',
+              style: TextStyle(
+                  fontFamily: FontFamily.AvenirMedium,
+                  fontSize: 16,
+                  color: ColorPrimary)),
           backgroundColor: ColorWhite,
           iconTheme: IconThemeData(color: ColorPrimary),
         ),

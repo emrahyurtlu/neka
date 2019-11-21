@@ -5,8 +5,9 @@ import 'package:neka/settings/font_families.dart';
 import 'package:neka/utils/console_log_util.dart';
 import 'package:neka/utils/route_util.dart';
 import 'package:neka/view/components/category_component.dart';
-import 'package:neka/view/components/header.dart';
+import 'package:neka/view/components/header_component.dart';
 import 'package:neka/view/components/product_component.dart';
+import 'package:neka/view/components/text_input_component.dart';
 import 'package:neka/view/screens/categories_screen.dart';
 import 'package:neka/view/screens/category_detail_screen.dart';
 
@@ -16,14 +17,59 @@ class HomeMain extends StatefulWidget {
 }
 
 class _HomeMainState extends State<HomeMain> {
+  TextEditingController searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.all(10.0),
         child: ListView(children: <Widget>[
+          Padding(
+              padding: const EdgeInsets.only(top: 20, bottom: 10),
+              child: Header(
+                'Birşeyler arayın',
+                fontSize: 16,
+                fontFamily: FontFamily.AvenirHeavy,
+                color: ColorText,
+              )),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              // Search
+              Container(
+                padding: EdgeInsets.all(0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(50)),
+                  //border: Border.all(color: Color.fromRGBO(241, 241, 241, 1)),
+                  color: Color.fromRGBO(250, 250, 250, 1),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Form(
+                      child: Row(
+                        children: <Widget>[
+                          TextInputComponent(
+                            searchController,
+                            width: MediaQuery.of(context).size.width - 30,
+                            labelText: 'Ara',
+                            hintText: 'Birşeyler yazın',
+                            contentPadding: EdgeInsets.all(0),
+                            prefixIcon: Icon(Icons.search),
+                            border: InputBorder.none,
+                            height: 50,
+                            onChanged: (String txt) {
+                              consoleLog('Aranacak kelime: ' + searchController.text);
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
               //Your location
               Padding(
                   padding: const EdgeInsets.only(top: 20),
