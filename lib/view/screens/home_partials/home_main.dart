@@ -1,9 +1,13 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
 import 'package:neka/utils/console_log_util.dart';
 import 'package:neka/utils/route_util.dart';
+import 'package:neka/view/components/bottom_sheet_component.dart';
 import 'package:neka/view/components/category_component.dart';
 import 'package:neka/view/components/header_component.dart';
 import 'package:neka/view/components/product_component.dart';
@@ -18,6 +22,14 @@ class HomeMain extends StatefulWidget {
 
 class _HomeMainState extends State<HomeMain> {
   TextEditingController searchController = TextEditingController();
+
+  Completer<GoogleMapController> _controller = Completer();
+
+  static const LatLng _center = const LatLng(45.521563, -122.677433);
+
+  void _onMapCreated(GoogleMapController controller) {
+    _controller.complete(controller);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +52,7 @@ class _HomeMainState extends State<HomeMain> {
                 padding: EdgeInsets.all(0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(50)),
-                  //border: Border.all(color: Color.fromRGBO(241, 241, 241, 1)),
+                  border: Border.all(color: Color.fromRGBO(241, 241, 241, 1)),
                   color: Color.fromRGBO(250, 250, 250, 1),
                 ),
                 child: Column(
@@ -60,7 +72,8 @@ class _HomeMainState extends State<HomeMain> {
                             border: InputBorder.none,
                             height: 50,
                             onChanged: (String txt) {
-                              consoleLog('Aranacak kelime: ' + searchController.text);
+                              consoleLog(
+                                  'Aranacak kelime: ' + searchController.text);
                             },
                           ),
                         ],
@@ -101,6 +114,20 @@ class _HomeMainState extends State<HomeMain> {
                       child: GestureDetector(
                           onTap: () {
                             consoleLog('Lokasyon değiştir linkine tıklandı!');
+                            openBottomSheet(
+                                context,
+                                Container(
+                                  width: double.infinity,
+                                  height:
+                                      MediaQuery.of(context).size.height / 2,
+                                  child: GoogleMap(
+                                    onMapCreated: _onMapCreated,
+                                    initialCameraPosition: CameraPosition(
+                                      target: _center,
+                                      zoom: 11.0,
+                                    ),
+                                  ),
+                                ));
                           },
                           child: Text(
                             'Değiştir',
