@@ -7,16 +7,16 @@ import 'package:neka/view/components/category_component.dart';
 import 'package:neka/view/components/header_component.dart';
 import 'package:neka/view/screens/category_detail_screen.dart';
 
-class Categories extends StatefulWidget {
+class CategoriesScreen extends StatefulWidget {
   final bool showAppbar;
 
-  const Categories({Key key, this.showAppbar = false}) : super(key: key);
+  const CategoriesScreen({Key key, this.showAppbar = false}) : super(key: key);
 
   @override
-  _CategoriesState createState() => _CategoriesState();
+  _CategoriesScreenState createState() => _CategoriesScreenState();
 }
 
-class _CategoriesState extends State<Categories> {
+class _CategoriesScreenState extends State<CategoriesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

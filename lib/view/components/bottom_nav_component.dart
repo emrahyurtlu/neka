@@ -37,7 +37,7 @@ class _BottomNavigationComponentState extends State<BottomNavigationComponent> {
         ),
         BottomNavigationBarItem(
             icon: Icon(Icons.apps), title: Text('Kategoriler')),
-        //BottomNavigationBarItem(icon: Icon(Icons.search), title: Text('Ara')),
+        BottomNavigationBarItem(icon: Icon(Icons.search), title: Text('Ara')),
       ],
       backgroundColor: ColorWhite,
       selectedItemColor: ColorPrimary,

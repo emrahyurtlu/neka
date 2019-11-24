@@ -7,12 +7,12 @@ import 'package:neka/view/components/header_component.dart';
 import 'package:neka/view/components/store_component.dart';
 import 'package:neka/view/screens/business_detail.dart';
 
-class NearMe extends StatefulWidget {
+class NearMeScreen extends StatefulWidget {
   @override
-  _NearMeState createState() => _NearMeState();
+  _NearMeScreenState createState() => _NearMeScreenState();
 }
 
-class _NearMeState extends State<NearMe> {
+class _NearMeScreenState extends State<NearMeScreen> {
   @override
   Widget build(BuildContext context) {
     return Padding(

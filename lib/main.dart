@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
-import 'package:neka/view/screens/home_screen.dart';
+import 'package:neka/view/screens/menu_screen.dart';
 
 void main() => runApp(Neka());
 
@@ -19,7 +19,7 @@ class Neka extends StatelessWidget {
         scaffoldBackgroundColor: ColorWhite,
         fontFamily: FontFamily.AvenirBook
       ),
-      home: Home(),
+      home: Menu(),
     );
   }
 }
