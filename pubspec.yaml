@@ -26,6 +26,7 @@ dependencies:
   cached_network_image:
   flutter_rating_bar: ^1.2.0
   google_maps_flutter: ^0.5.21+12
+  geolocator: ^5.1.5
 
 dev_dependencies:
   flutter_test:

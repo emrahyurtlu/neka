@@ -1,8 +1,5 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
 import 'package:neka/utils/console_log_util.dart';
@@ -12,6 +9,7 @@ import 'package:neka/view/components/header_component.dart';
 import 'package:neka/view/components/product_component.dart';
 import 'package:neka/view/screens/categories_screen.dart';
 import 'package:neka/view/screens/category_detail_screen.dart';
+import 'package:neka/view/screens/change_location_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -19,14 +17,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  Completer<GoogleMapController> _controller = Completer();
-
-  static const LatLng _center = const LatLng(39.950266, 32.831180);
-
-  void _onMapCreated(GoogleMapController controller) {
-    _controller.complete(controller);
-  }
-
   @override
   void dispose() {
     super.dispose();
@@ -74,25 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.only(left: 5),
                         child: GestureDetector(
                             onTap: () {
-                              _scaffoldKey.currentState
-                                  .showBottomSheet((context) {
-                                return Container(
-                                  width: double.infinity,
-                                  height: MediaQuery.of(context).size.height,
-                                  child: GoogleMap(
-                                    onTap: (LatLng location) {
-                                      consoleLog(location.toString());
-                                    },
-                                    onMapCreated: _onMapCreated,
-                                    mapToolbarEnabled: true,
-                                    myLocationButtonEnabled: true,
-                                    initialCameraPosition: CameraPosition(
-                                      target: _center,
-                                      zoom: 11.0,
-                                    ),
-                                  ),
-                                );
-                              });
+                              redirectTo(context, ChangeLocationScreen());
                             },
                             child: Text(
                               'Değiştir',
