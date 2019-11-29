@@ -33,7 +33,7 @@ class _BottomNavigationComponentState extends State<BottomNavigationComponent> {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.near_me),
-          title: Text('Yakındakiler'),
+          title: Text('Keşfet'),
         ),
         BottomNavigationBarItem(
             icon: Icon(Icons.apps), title: Text('Kategoriler')),

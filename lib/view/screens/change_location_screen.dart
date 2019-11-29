@@ -1,11 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
+import 'package:geocoder/geocoder.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/styles.dart';
 import 'package:neka/utils/console_log_util.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ChangeLocationScreen extends StatefulWidget {
   @override
@@ -16,27 +17,23 @@ class _ChangeLocationScreenState extends State<ChangeLocationScreen> {
   final _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   Completer<GoogleMapController> _controller = Completer();
-  Position position;
 
-  static LatLng _center = LatLng(39.950266, 32.831180);
-  static Marker _here = Marker(markerId: MarkerId('Now'), position: _center);
-  final _markers = <Marker>[_here];
+  CameraPosition _cameraPosition =
+      CameraPosition(target: LatLng(39.797917, 32.942895), zoom: 6);
+  final _markers = <Marker>[];
 
   void _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
+
+    _scaffoldKey.currentState.showSnackBar(SnackBar(
+      content: Text(
+          'Konumunuz belirlemek için harita üzerinde bir yere tıklayınız.'),
+    ));
   }
 
   @override
   void initState() {
-    GetPosition().then((Position pos) => position = pos);
     super.initState();
-  }
-
-  Future<Position> GetPosition() async {
-    Position position = await Geolocator()
-        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-    consoleLog(position.toString());
-    return position;
   }
 
   @override
@@ -56,26 +53,26 @@ class _ChangeLocationScreenState extends State<ChangeLocationScreen> {
               child: Container(
                 width: double.infinity,
                 child: GoogleMap(
+                  mapToolbarEnabled: true,
+
+                  myLocationEnabled: true,
                   markers: Set.from(_markers),
                   onTap: (LatLng location) {
                     setState(() {
-                      _center = location;
-                      _markers.removeLast();
-                      _markers.add(Marker(
-                          markerId: MarkerId('Now'), position: location));
+                      _markOnMap(location);
+                      _saveLocation(location);
                       _scaffoldKey.currentState.showSnackBar(SnackBar(
                         content: Text('Konumunuz belirlendi.'),
                       ));
                     });
-                    consoleLog(location.toString());
                   },
                   onMapCreated: _onMapCreated,
-                  mapToolbarEnabled: true,
-                  myLocationButtonEnabled: true,
-                  initialCameraPosition: CameraPosition(
-                    target: _center,
-                    zoom: 11.0,
-                  ),
+                  onCameraMove: (CameraPosition pos) {
+                    setState(() {
+                      _markOnMap(pos.target);
+                    });
+                  },
+                  initialCameraPosition: _cameraPosition,
                 ),
               ),
             ),
@@ -83,5 +80,23 @@ class _ChangeLocationScreenState extends State<ChangeLocationScreen> {
         ),
       ),
     );
+  }
+
+  void _markOnMap(LatLng location) {
+    consoleLog('Mark on map: ${location.toString()}');
+    _markers.clear();
+    _markers.add(Marker(markerId: MarkerId('Here'), position: location));
+    _saveLocation(location);
+  }
+
+  void _saveLocation(LatLng location) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var address = await Geocoder.local.findAddressesFromCoordinates(
+        Coordinates(location.latitude, location.longitude));
+
+    prefs.setDouble("latitude", location.latitude);
+    prefs.setDouble("longitude", location.longitude);
+    prefs.setString("city", address.first.adminArea);
+    prefs.setString("district", address.first.subAdminArea);
   }
 }

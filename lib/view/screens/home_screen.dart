@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:geocoder/geocoder.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:neka/business/location_service.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
 import 'package:neka/utils/console_log_util.dart';
@@ -17,6 +20,26 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  LocationService _locationService;
+  Position _position;
+  Address _address;
+  String _addr;
+
+  @override
+  void initState() {
+    _locationService = LocationService();
+    _locationService
+        .getLocation()
+        .then((Position position) => _position = position);
+    _locationService.resolveAddress(_position).then((Address address) {
+      _address = address;
+      _addr = _address != null
+          ? "${_address.adminArea}, ${_address.subAdminArea}"
+          : "Konumunuz alınamadı.";
+    });
+    super.initState();
+  }
+
   @override
   void dispose() {
     super.dispose();
@@ -54,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: ColorText,
                       ),
                       Text(
-                        'Ankara, Çankaya',
+                        _addr,
                         style: TextStyle(
                             fontFamily: FontFamily.AvenirBook,
                             fontSize: 14,
