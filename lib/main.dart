@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
 import 'package:neka/view/screens/menu_screen.dart';
+import 'package:neka/view/screens/test_screen.dart';
 
 import 'settings/colors.dart';
 import 'settings/font_families.dart';
-import 'view/screens/menu_screen.dart';
 
 void main() => runApp(Neka());
 
@@ -16,13 +16,12 @@ class Neka extends StatelessWidget {
       title: 'Neka App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: ColorPrimary,
-        backgroundColor: ColorWhite,
-        buttonColor: ColorPrimary,
-        accentColor: ColorSecondary,
-        scaffoldBackgroundColor: ColorWhite,
-        fontFamily: FontFamily.AvenirBook
-      ),
+          primaryColor: ColorPrimary,
+          backgroundColor: ColorWhite,
+          buttonColor: ColorPrimary,
+          accentColor: ColorSecondary,
+          scaffoldBackgroundColor: ColorWhite,
+          fontFamily: FontFamily.AvenirBook),
       home: Menu(),
     );
   }
