@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:geocoder/geocoder.dart';
-import 'package:geolocator/geolocator.dart';
+import 'package:neka/business/appdata_service.dart';
 import 'package:neka/business/location_service.dart';
+import 'package:neka/models/location_model.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
 import 'package:neka/utils/console_log_util.dart';
+import 'package:neka/utils/message_util.dart';
 import 'package:neka/utils/route_util.dart';
+import 'package:neka/utils/string_util.dart';
 import 'package:neka/view/components/category_component.dart';
 import 'package:neka/view/components/header_component.dart';
 import 'package:neka/view/components/product_component.dart';
@@ -21,23 +23,14 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   LocationService _locationService;
-  Position _position;
-  Address _address;
-  String _addr;
+
+  //String _addrLabel = "Konumunuz hazırlanıyor.";
 
   @override
   void initState() {
-    _locationService = LocationService();
-    _locationService
-        .getLocation()
-        .then((Position position) => _position = position);
-    _locationService.resolveAddress(_position).then((Address address) {
-      _address = address;
-      _addr = _address != null
-          ? "${_address.adminArea}, ${_address.subAdminArea}"
-          : "Konumunuz alınamadı.";
-    });
     super.initState();
+    _locationService = LocationService();
+    _setLocationLabel();
   }
 
   @override
@@ -77,7 +70,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: ColorText,
                       ),
                       Text(
-                        _addr,
+                        //_addrLabel,
+                        AppData.homeLocationLabel,
                         style: TextStyle(
                             fontFamily: FontFamily.AvenirBook,
                             fontSize: 14,
@@ -266,5 +260,40 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ])),
     );
+  }
+
+  void _setLocationLabel() async {
+    if (AppData.locationModel?.position != null) {
+      setState(() {
+        AppData.homeLocationLabel = createHomeLocationLabel(
+            AppData.locationModel.address.adminArea,
+            AppData.locationModel.address.subAdminArea);
+      });
+    } else {
+      try {
+        _locationService.getLocationDetails().then((LocationModel model) {
+          AppData.locationModel = model;
+          setState(() {
+            AppData.homeLocationLabel = createHomeLocationLabel(
+                model.address.adminArea, model.address.subAdminArea);
+          });
+        });
+      } catch (e) {
+        consoleLog(e);
+        alert(
+            context,
+            'Konum hatası',
+            'Konum bilginiz alınamadı. '
+                'Cihazınızın konum servisinin açık olduğundan emin olunuz'
+                '.',
+            <Widget>[
+              FlatButton(
+                child: Text('Tamam'),
+                onPressed: () => Navigator.pop(context),
+              )
+            ]);
+      }
+    }
+    ;
   }
 }

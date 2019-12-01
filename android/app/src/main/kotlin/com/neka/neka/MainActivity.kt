@@ -1,4 +1,4 @@
-package com.neka.neka
+package com.neka.app
 
 import android.os.Bundle
 
