@@ -1,7 +1,8 @@
 import 'package:geocoder/geocoder.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:neka/models/abstract_model.dart';
 
-class LocationModel {
+class LocationModel implements AbstractModel {
   Position position;
   Address address;
 
