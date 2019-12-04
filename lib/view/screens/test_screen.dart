@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:geocoder/geocoder.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:neka/datalayer/generic/base_repo.dart';
-import 'package:neka/models/location_model.dart';
+import 'package:neka/datalayer/repos/favorite_repo.dart';
+import 'package:neka/models/favorite_model.dart';
 import 'package:neka/utils/console_log_util.dart';
 
 class TestScreen extends StatefulWidget {
@@ -11,13 +9,12 @@ class TestScreen extends StatefulWidget {
 }
 
 class _TestScreenState extends State<TestScreen> {
-  BaseRepo repo;
+  FavoriteRepo repo;
   String _result = "No Result";
 
   @override
   void initState() {
-    repo = BaseRepo();
-    query();
+    repo = FavoriteRepo();
     super.initState();
   }
 
@@ -39,13 +36,9 @@ class _TestScreenState extends State<TestScreen> {
             RaisedButton(
               child: Text('INSERT'),
               onPressed: () async {
-                var model = LocationModel();
-                model.position = Position(latitude: 1.11, longitude: 2.33);
-                model.address = Address(
-                    adminArea: 'Manisa',
-                    subAdminArea: 'Salihli',
-                    addressLine: 'Közde köfte');
+                var model = FavoriteModel(productId: 3000);
                 var result = await repo.insert(model);
+                consoleLog(result.toString());
                 setState(() {
                   _result = result.toString();
                 });
@@ -54,9 +47,10 @@ class _TestScreenState extends State<TestScreen> {
             RaisedButton(
               child: Text('GET'),
               onPressed: () async {
-                var result = await repo.get(2);
+                var result = await repo.get(1);
+                consoleLog(result.toString());
                 setState(() {
-                  _result = result.address.adminArea;
+                  _result = result.productId.toString();
                 });
               },
             ),
@@ -64,21 +58,18 @@ class _TestScreenState extends State<TestScreen> {
               child: Text('GET LIST'),
               onPressed: () async {
                 var result = await repo.getList();
+                consoleLog(result.toString());
                 setState(() {
-                  _result = result.first.position.latitude.toString();
+                  _result = result.first.productId.toString();
                 });
               },
             ),
             RaisedButton(
               child: Text('UPDATE'),
               onPressed: () async {
-                var model = LocationModel();
-                model.position = Position(latitude: 1.11, longitude: 2.33);
-                model.address = Address(
-                    adminArea: 'İzmir',
-                    subAdminArea: 'Çeşme',
-                    addressLine: 'Közde köfte');
-                var result = await repo.update(model, 2);
+                var model = FavoriteModel(productId: 3001);
+                var result = await repo.update(model, 1);
+                consoleLog(result.toString());
                 setState(() {
                   _result = result.toString();
                 });
@@ -87,7 +78,8 @@ class _TestScreenState extends State<TestScreen> {
             RaisedButton(
               child: Text('DELETE'),
               onPressed: () async {
-                var result = await repo.delete(2);
+                var result = await repo.delete(1);
+                consoleLog(result.toString());
                 setState(() {
                   _result = result.toString();
                 });
@@ -97,16 +89,5 @@ class _TestScreenState extends State<TestScreen> {
         ),
       ),
     );
-  }
-
-  query() async {
-    var model = LocationModel();
-    model.position = Position(latitude: 1.11, longitude: 2.33);
-    model.address = Address(
-        adminArea: 'Kastamonu',
-        subAdminArea: 'Çatalzeytin',
-        addressLine: 'dsg dsgffds fds ds');
-    var result = await repo.getList();
-    consoleLog(result.toString());
   }
 }

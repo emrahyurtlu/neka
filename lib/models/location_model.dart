@@ -1,8 +1,8 @@
 import 'package:geocoder/geocoder.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:neka/models/abstract_model.dart';
 
-class LocationModel implements AbstractModel {
+class LocationModel {
+  int id;
   Position position;
   Address address;
 
@@ -13,8 +13,9 @@ class LocationModel implements AbstractModel {
     return this.position.toString() + " " + this.address.toMap().toString();
   }
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toMap({withId = true}) {
     var map = Map<String, dynamic>();
+    if (withId) map['id'] = id;
     map['latitude'] = position.latitude;
     map['longitude'] = position.longitude;
     map['city'] = address.adminArea;
@@ -24,6 +25,7 @@ class LocationModel implements AbstractModel {
   }
 
   LocationModel.from(Map<String, dynamic> map) {
+    this.id = map['id'];
     this.position =
         Position(latitude: map['latitude'], longitude: map['longitude']);
     this.address = Address(

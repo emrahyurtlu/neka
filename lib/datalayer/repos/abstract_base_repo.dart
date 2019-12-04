@@ -1,9 +1,4 @@
-import 'package:neka/datalayer/generic/database_helper.dart';
-
-abstract class AbstratcBaseRepo<T> {
-  String table;
-  DBHelper helper;
-
+abstract class AbstractBaseRepo<T> {
   Future<int> insert(T entity);
 
   Future<int> update(T entity, int id);

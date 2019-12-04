@@ -1,10 +1,10 @@
-import 'package:neka/datalayer/repos/abstract_base_repo.dart';
 import 'package:neka/datalayer/helper/database_helper.dart';
-import 'package:neka/models/location_model.dart';
+import 'package:neka/datalayer/repos/abstract_base_repo.dart';
+import 'package:neka/models/favorite_model.dart';
 
-class LocationRepo implements AbstractBaseRepo<LocationModel> {
+class FavoriteRepo implements AbstractBaseRepo<FavoriteModel> {
   DBHelper _helper = DBHelper();
-  String _table = "locations";
+  String _table = "favorites";
 
   @override
   Future<int> delete(int id) async {
@@ -14,30 +14,30 @@ class LocationRepo implements AbstractBaseRepo<LocationModel> {
   }
 
   @override
-  Future<LocationModel> get(int id) async {
+  Future<FavoriteModel> get(int id) async {
     var client = await _helper.db;
     var result = await client.query(_table, where: 'id=?', whereArgs: [id]);
-    LocationModel model = LocationModel.from(result.first);
+    FavoriteModel model = FavoriteModel.from(result.first);
     return model;
   }
 
   @override
-  Future<List<LocationModel>> getList({String where, List args}) async {
+  Future<List<FavoriteModel>> getList({String where, List args}) async {
     var client = await _helper.db;
     var result = await client.query(_table,
         orderBy: 'id', where: where, whereArgs: args);
-    return result.map((map) => LocationModel.from(map)).toList();
+    return result.map((map) => FavoriteModel.from(map)).toList();
   }
 
   @override
-  Future<int> insert(LocationModel entity) async {
+  Future<int> insert(FavoriteModel entity) async {
     var client = await _helper.db;
     var result = await client.insert(_table, entity.toMap());
     return result;
   }
 
   @override
-  Future<int> update(LocationModel entity, int id) async {
+  Future<int> update(FavoriteModel entity, int id) async {
     var client = await _helper.db;
     var result = await client.update(_table, entity.toMap(withId: false),
         where: "id=?", whereArgs: [id]);
