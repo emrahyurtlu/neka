@@ -49,6 +49,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                       title: 'Çaykur Rize Çayı 1000gr',
                       image:
                           'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                      id: 1,
                     ),
                     ProductComponent(
                       onTap: () {
@@ -56,7 +57,8 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                       },
                       title: 'Doğuş Filiz Çay Çayı 1000gr',
                       image:
-                          'https://productimages.hepsiburada.net/s/19/1500/9830599000114.jpg',
+                      'https://productimages.hepsiburada.net/s/19/1500/9830599000114.jpg',
+                      id: 2,
                     ),
                     ProductComponent(
                       onTap: () {
@@ -64,7 +66,8 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                       },
                       title: 'Karali Dökme Çay 1000gr',
                       image:
-                          'https://productimages.hepsiburada.net/s/25/500/10114532278322.jpg',
+                      'https://productimages.hepsiburada.net/s/25/500/10114532278322.jpg',
+                      id: 3,
                     ),
                     ProductComponent(
                       onTap: () {
@@ -72,7 +75,8 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                       },
                       title: 'Lipton Dökme Çay Yellow Label 1000gr',
                       image:
-                          'https://productimages.hepsiburada.net/s/22/1500/9962145841202.jpg',
+                      'https://productimages.hepsiburada.net/s/22/1500/9962145841202.jpg',
+                      id: 4,
                     ),
                     ProductComponent(
                       onTap: () {
@@ -80,7 +84,8 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                       },
                       title: 'Çaykur Kamelya Çayı 1000gr',
                       image:
-                          'https://productimages.hepsiburada.net/s/25/500/10108396470322.jpg',
+                      'https://productimages.hepsiburada.net/s/25/500/10108396470322.jpg',
+                      id: 5,
                     ),
                     ProductComponent(
                       onTap: () {
@@ -88,7 +93,8 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                       },
                       title: 'Çaykur Kamelya Çayı 1000gr',
                       image:
-                          'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                      'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                      id: 6,
                     ),
                   ],
                 ),

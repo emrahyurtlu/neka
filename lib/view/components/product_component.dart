@@ -18,7 +18,7 @@ class ProductComponent extends StatefulWidget {
 
   ProductComponent(
       {Key key,
-      this.id,
+      @required this.id,
       @required this.onTap,
       @required this.title,
       @required this.image,

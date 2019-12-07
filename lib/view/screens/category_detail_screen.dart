@@ -161,6 +161,7 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen>
                         title: 'Çaykur Kamelya Çayı 1000gr',
                         image:
                             'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                        id: 1,
                       ),
                       ProductComponent(
                         onTap: () {
@@ -168,7 +169,8 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen>
                         },
                         title: 'Çaykur Kamelya Çayı 1000gr',
                         image:
-                            'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                        'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                        id: 2,
                       ),
                       ProductComponent(
                         onTap: () {
@@ -176,7 +178,8 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen>
                         },
                         title: 'Çaykur Kamelya Çayı 1000gr',
                         image:
-                            'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                        'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                        id: 3,
                       ),
                       ProductComponent(
                         onTap: () {
@@ -184,7 +187,8 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen>
                         },
                         title: 'Çaykur Kamelya Çayı 1000gr',
                         image:
-                            'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                        'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                        id: 4,
                       ),
                       ProductComponent(
                         onTap: () {
@@ -192,7 +196,8 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen>
                         },
                         title: 'Çaykur Kamelya Çayı 1000gr',
                         image:
-                            'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                        'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                        id: 5,
                       ),
                       ProductComponent(
                         onTap: () {
@@ -200,7 +205,8 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen>
                         },
                         title: 'Çaykur Kamelya Çayı 1000gr',
                         image:
-                            'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                        'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                        id: 6,
                       ),
                     ],
                   ),

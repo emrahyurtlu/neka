@@ -16,14 +16,12 @@ class ProductImageRepo implements AbstractBaseRepo<ProductImageModel> {
   @override
   Future<ProductImageModel> get(int id) async {
     var client = await _helper.db;
-    var result = await client.query(_table, where: 'id=?', whereArgs: [id]);
-
-    if (result != null) {
+    client.query(_table, where: 'id=?', whereArgs: [id]).then((result) {
       var model = ProductImageModel.from(result.first);
       return model;
-    }
-
-    return null;
+    }).catchError(() {
+      return null;
+    });
   }
 
   @override

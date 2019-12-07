@@ -16,27 +16,24 @@ class FollowedFirmRepo implements AbstractBaseRepo<FollowedFirmModel> {
   @override
   Future<FollowedFirmModel> get(int id) async {
     var client = await _helper.db;
-    var result = await client.query(_table, where: 'id=?', whereArgs: [id]);
-
-    if (result != null) {
+    client.query(_table, where: 'id=?', whereArgs: [id]).then((result) {
       FollowedFirmModel model = FollowedFirmModel.from(result.first);
       return model;
-    }
-
-    return null;
+    }).catchError(() {
+      return null;
+    });
   }
 
   @override
   Future<List<FollowedFirmModel>> getList({String where, List args}) async {
     var client = await _helper.db;
-    var result = await client.query(_table,
-        orderBy: 'id', where: where, whereArgs: args);
-
-    if (result != null) {
+    client
+        .query(_table, orderBy: 'id', where: where, whereArgs: args)
+        .then((result) {
       return result.map((map) => FollowedFirmModel.from(map)).toList();
-    }
-
-    return null;
+    }).catchError(() {
+      return null;
+    });
   }
 
   @override

@@ -16,27 +16,24 @@ class UserRepo implements AbstractBaseRepo<UserModel> {
   @override
   Future<UserModel> get(int id) async {
     var client = await _helper.db;
-    var result = await client.query(_table, where: 'id=?', whereArgs: [id]);
-
-    if (result != null) {
+    client.query(_table, where: 'id=?', whereArgs: [id]).then((result) {
       var model = UserModel.from(result.first);
       return model;
-    }
-
-    return null;
+    }).catchError(() {
+      return null;
+    });
   }
 
   @override
   Future<List<UserModel>> getList({String where, List args}) async {
     var client = await _helper.db;
-    var result = await client.query(_table,
-        orderBy: 'id', where: where, whereArgs: args);
-
-    if (result != null) {
+    client
+        .query(_table, orderBy: 'id', where: where, whereArgs: args)
+        .then((result) {
       return result.map((map) => UserModel.from(map)).toList();
-    }
-
-    return null;
+    }).catchError(() {
+      return null;
+    });
   }
 
   @override

@@ -16,27 +16,24 @@ class MassUnitRepo implements AbstractBaseRepo<MassUnitModel> {
   @override
   Future<MassUnitModel> get(int id) async {
     var client = await _helper.db;
-    var result = await client.query(_table, where: 'id=?', whereArgs: [id]);
-
-    if (result != null) {
+    client.query(_table, where: 'id=?', whereArgs: [id]).then((result) {
       var model = MassUnitModel.from(result.first);
       return model;
-    }
-
-    return null;
+    }).catchError(() {
+      return null;
+    });
   }
 
   @override
   Future<List<MassUnitModel>> getList({String where, List args}) async {
     var client = await _helper.db;
-    var result = await client.query(_table,
-        orderBy: 'id', where: where, whereArgs: args);
-
-    if (result != null) {
+    client
+        .query(_table, orderBy: 'id', where: where, whereArgs: args)
+        .then((result) {
       return result.map((map) => MassUnitModel.from(map)).toList();
-    }
-
-    return null;
+    }).catchError(() {
+      return null;
+    });
   }
 
   @override
