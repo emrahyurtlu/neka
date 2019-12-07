@@ -65,7 +65,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         width: 70,
                         height: 70,
                         onTap: () {
-                          redirectTo(context, CategoryDetail());
+                          redirectTo(context, CategoryDetailScreen());
                           consoleLog('Kategori: Temel Gıda');
                         },
                       ),

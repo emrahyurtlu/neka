@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
-import 'package:neka/settings/styles.dart';
 import 'package:neka/utils/console_log_util.dart';
 import 'package:neka/view/components/header_component.dart';
 import 'package:neka/view/components/text_input_component.dart';

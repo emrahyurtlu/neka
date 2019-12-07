@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neka/business/location_service.dart';
 import 'package:neka/datalayer/repos/favorite_repo.dart';
-import 'package:neka/utils/console_log_util.dart';
+import 'package:neka/utils/connectivity_util.dart';
 
 class TestScreen extends StatefulWidget {
   @override
@@ -37,14 +37,13 @@ class _TestScreenState extends State<TestScreen> {
             ),
             RaisedButton(
               child: Text(
-                'Check Permission',
+                'CLICK',
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: () async {
-                var details = await _locationService.getLocationDetails();
-                consoleLog(details.toString());
+                var result = await getConnectionStatus();
                 setState(() {
-                  _result = details.toMap().toString();
+                  _result = result.toString();
                 });
               },
             ),

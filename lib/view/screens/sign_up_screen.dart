@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/styles.dart';
 import 'package:neka/view/components/button_component.dart';
-import 'package:neka/view/components/dropdown_component.dart';
 import 'package:neka/view/components/text_input_component.dart';
 
 class SignUpScreen extends StatefulWidget {

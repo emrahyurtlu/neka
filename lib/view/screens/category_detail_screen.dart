@@ -7,12 +7,12 @@ import 'package:neka/view/components/header_component.dart';
 import 'package:neka/view/components/product_component.dart';
 import 'package:neka/view/components/smart_tab_component.dart';
 
-class CategoryDetail extends StatefulWidget {
+class CategoryDetailScreen extends StatefulWidget {
   @override
-  _CategoryDetailState createState() => _CategoryDetailState();
+  _CategoryDetailScreenState createState() => _CategoryDetailScreenState();
 }
 
-class _CategoryDetailState extends State<CategoryDetail>
+class _CategoryDetailScreenState extends State<CategoryDetailScreen>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
 

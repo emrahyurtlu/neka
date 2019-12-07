@@ -128,49 +128,49 @@ class _HomeScreenState extends State<HomeScreen> {
                         imageUrl: 'assets/images/del/cat1.png',
                         title: 'Temel Gıda',
                         onTap: () {
-                          redirectTo(context, CategoryDetail());
+                          redirectTo(context, CategoryDetailScreen());
                         },
                       ),
                       CategoryComponent(
                         imageUrl: 'assets/images/del/cat2.png',
                         title: 'Temizlik',
                         onTap: () {
-                          redirectTo(context, CategoryDetail());
+                          redirectTo(context, CategoryDetailScreen());
                         },
                       ),
                       CategoryComponent(
                         imageUrl: 'assets/images/del/cat3.png',
                         title: 'Et Ürünleri',
                         onTap: () {
-                          redirectTo(context, CategoryDetail());
+                          redirectTo(context, CategoryDetailScreen());
                         },
                       ),
                       CategoryComponent(
                         imageUrl: 'assets/images/del/cat4.png',
                         title: 'Süt Ürünleri',
                         onTap: () {
-                          redirectTo(context, CategoryDetail());
+                          redirectTo(context, CategoryDetailScreen());
                         },
                       ),
                       CategoryComponent(
                         imageUrl: 'assets/images/del/cat5.png',
                         title: 'Kişisel Bakım',
                         onTap: () {
-                          redirectTo(context, CategoryDetail());
+                          redirectTo(context, CategoryDetailScreen());
                         },
                       ),
                       CategoryComponent(
                         imageUrl: 'assets/images/del/cat6.png',
                         title: 'Manav',
                         onTap: () {
-                          redirectTo(context, CategoryDetail());
+                          redirectTo(context, CategoryDetailScreen());
                         },
                       ),
                       CategoryComponent(
                         imageUrl: 'assets/images/del/cat7.png',
                         title: 'Kuruyemiş',
                         onTap: () {
-                          redirectTo(context, CategoryDetail());
+                          redirectTo(context, CategoryDetailScreen());
                         },
                       ),
                     ],

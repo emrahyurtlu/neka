@@ -10,12 +10,12 @@ import 'package:neka/view/screens/search_screen.dart';
 
 import 'home_screen.dart';
 
-class Menu extends StatefulWidget {
+class MenuScreen extends StatefulWidget {
   @override
-  _MenuState createState() => _MenuState();
+  _MenuScreenState createState() => _MenuScreenState();
 }
 
-class _MenuState extends State<Menu> {
+class _MenuScreenState extends State<MenuScreen> {
   int currentTab = 0;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 

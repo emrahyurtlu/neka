@@ -8,12 +8,12 @@ import 'package:neka/view/components/product_component.dart';
 import 'package:neka/view/components/property_component.dart';
 import 'package:neka/view/components/smart_tab_component.dart';
 
-class BusinessDetail extends StatefulWidget {
+class BusinessDetailScreen extends StatefulWidget {
   @override
-  _BusinessDetailState createState() => _BusinessDetailState();
+  _BusinessDetailScreenState createState() => _BusinessDetailScreenState();
 }
 
-class _BusinessDetailState extends State<BusinessDetail> {
+class _BusinessDetailScreenState extends State<BusinessDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -5,7 +5,7 @@ import 'package:neka/utils/console_log_util.dart';
 import 'package:neka/utils/route_util.dart';
 import 'package:neka/view/components/header_component.dart';
 import 'package:neka/view/components/store_component.dart';
-import 'package:neka/view/screens/business_detail.dart';
+import 'package:neka/view/screens/business_detail_screen.dart';
 
 class NearMeScreen extends StatefulWidget {
   @override
@@ -33,7 +33,7 @@ class _NearMeScreenState extends State<NearMeScreen> {
           ),
           StoreComponent(
               onTap: () {
-                redirectTo(context, BusinessDetail());
+                redirectTo(context, BusinessDetailScreen());
               },
               title: 'Bim/Yeşiltepe',
               image:

@@ -21,7 +21,7 @@ class Neka extends StatelessWidget {
           accentColor: ColorSecondary,
           scaffoldBackgroundColor: ColorWhite,
           fontFamily: FontFamily.AvenirBook),
-      home: Menu(),
+      home: MenuScreen(),
     );
   }
 }
