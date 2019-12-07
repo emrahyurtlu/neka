@@ -35,14 +35,20 @@ class DBHelper {
     /// Locations Table Creation
     await db.execute(
         "CREATE TABLE `locations` (`id`	INTEGER PRIMARY KEY AUTOINCREMENT, `latitude`	REAL NOT NULL, `longitude`	REAL NOT NULL, `city`	TEXT NOT NULL, `district`	TEXT NOT NULL, `full_addr`	TEXT)");
+
+    /// Categories Table Creation
+    await db.execute(
+        "CREATE TABLE `categories` (`id`	INTEGER PRIMARY KEY AUTOINCREMENT, `parentId`	INTEGER NOT NULL, `name`	TEXT NOT NULL)");
   }
 
   FutureOr<void> _onUpgrade(Database db, int oldVersion, int newVersion) {
-    consoleLog('Database helper => _onUpgrade');
-    db.execute("DROP TABLE favorites");
-    db.execute("DROP TABLE followed_firms");
-    db.execute("DROP TABLE locations");
+    if (oldVersion != newVersion) {
+      consoleLog('Database helper => _onUpgrade');
+      db.execute("DROP TABLE favorites");
+      db.execute("DROP TABLE followed_firms");
+      db.execute("DROP TABLE locations");
 
-    _onCreate(db, newVersion);
+      _onCreate(db, newVersion);
+    }
   }
 }
