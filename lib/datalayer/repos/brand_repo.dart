@@ -17,8 +17,12 @@ class BrandRepo implements AbstractBaseRepo<BrandModel> {
   Future<BrandModel> get(int id) async {
     var client = await _helper.db;
     var result = await client.query(_table, where: 'id=?', whereArgs: [id]);
-    var model = BrandModel.from(result.first);
-    return model;
+
+    if (result != null) {
+      var model = BrandModel.from(result.first);
+      return model;
+    }
+    return null;
   }
 
   @override
@@ -26,20 +30,25 @@ class BrandRepo implements AbstractBaseRepo<BrandModel> {
     var client = await _helper.db;
     var result = await client.query(_table,
         orderBy: 'id', where: where, whereArgs: args);
-    return result.map((map) => BrandModel.from(map)).toList();
+
+    if (result != null) {
+      return result.map((map) => BrandModel.from(map)).toList();
+    }
+
+    return null;
   }
 
   @override
-  Future<int> insert(BrandModel entity) async {
+  Future<int> insert(BrandModel model) async {
     var client = await _helper.db;
-    var result = await client.insert(_table, entity.toMap());
+    var result = await client.insert(_table, model.toMap());
     return result;
   }
 
   @override
-  Future<int> update(BrandModel entity, int id) async {
+  Future<int> update(BrandModel model, int id) async {
     var client = await _helper.db;
-    var result = await client.update(_table, entity.toMap(withId: false),
+    var result = await client.update(_table, model.toMap(withId: false),
         where: "id=?", whereArgs: [id]);
     return result;
   }

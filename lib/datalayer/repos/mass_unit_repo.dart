@@ -17,8 +17,13 @@ class MassUnitRepo implements AbstractBaseRepo<MassUnitModel> {
   Future<MassUnitModel> get(int id) async {
     var client = await _helper.db;
     var result = await client.query(_table, where: 'id=?', whereArgs: [id]);
-    var model = MassUnitModel.from(result.first);
-    return model;
+
+    if (result != null) {
+      var model = MassUnitModel.from(result.first);
+      return model;
+    }
+
+    return null;
   }
 
   @override
@@ -26,20 +31,25 @@ class MassUnitRepo implements AbstractBaseRepo<MassUnitModel> {
     var client = await _helper.db;
     var result = await client.query(_table,
         orderBy: 'id', where: where, whereArgs: args);
-    return result.map((map) => MassUnitModel.from(map)).toList();
+
+    if (result != null) {
+      return result.map((map) => MassUnitModel.from(map)).toList();
+    }
+
+    return null;
   }
 
   @override
-  Future<int> insert(MassUnitModel entity) async {
+  Future<int> insert(MassUnitModel model) async {
     var client = await _helper.db;
-    var result = await client.insert(_table, entity.toMap());
+    var result = await client.insert(_table, model.toMap());
     return result;
   }
 
   @override
-  Future<int> update(MassUnitModel entity, int id) async {
+  Future<int> update(MassUnitModel model, int id) async {
     var client = await _helper.db;
-    var result = await client.update(_table, entity.toMap(withId: false),
+    var result = await client.update(_table, model.toMap(withId: false),
         where: "id=?", whereArgs: [id]);
     return result;
   }

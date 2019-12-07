@@ -1,28 +1,30 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:neka/business/favorite_service.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
 import 'package:neka/utils/dimension_util.dart';
 import 'package:neka/view/components/property_component.dart';
 
 class ProductComponent extends StatefulWidget {
-  final String documentID;
+  final int id;
   final String title;
   final String image;
   final double rating;
   final GestureTapCallback onTap;
   final bool isFav;
-  final VoidCallback favoriteOnPressedCallback;
+
+  // final VoidCallback favoriteOnPressedCallback;
 
   ProductComponent(
       {Key key,
-        this.documentID,
-        @required this.onTap,
-        @required this.title,
-        @required this.image,
-        @required this.favoriteOnPressedCallback,
-        this.rating = 0,
-        this.isFav = false})
+      this.id,
+      @required this.onTap,
+      @required this.title,
+      @required this.image,
+      // @required this.favoriteOnPressedCallback,
+      this.rating = 0,
+      this.isFav = false})
       : super(key: key);
 
   @override
@@ -31,12 +33,12 @@ class ProductComponent extends StatefulWidget {
 
 class _ProductComponentState extends State<ProductComponent> {
   bool isFav = false;
-  IconData iconData;
+  Icon favIcon;
 
   @override
   void initState() {
     isFav = widget.isFav ? widget.isFav : false;
-    setIconData(isFav);
+    _setIconData(isFav);
     super.initState();
   }
 
@@ -110,10 +112,10 @@ class _ProductComponentState extends State<ProductComponent> {
                           child: Container(
                             color: Colors.white,
                             child: IconButton(
-                              icon: Icon(iconData),
+                              icon: favIcon,
                               iconSize: 24,
                               padding: EdgeInsets.all(0),
-                              onPressed: favOnPress,
+                              onPressed: _favOnPress,
                               color: ColorPrimary,
                             ),
                           ),
@@ -134,8 +136,15 @@ class _ProductComponentState extends State<ProductComponent> {
                         runSpacing: 0,
                         spacing: 3,
                         children: <Widget>[
-                          Image.asset('assets/images/del/bim_logo.png', width: 30),
-                          Text('Bim/Yeşiltepe', style: TextStyle(fontFamily: FontFamily.AvenirBook, fontSize: 12, color: ColorText),)
+                          Image.asset('assets/images/del/bim_logo.png',
+                              width: 30),
+                          Text(
+                            'Bim/Yeşiltepe',
+                            style: TextStyle(
+                                fontFamily: FontFamily.AvenirBook,
+                                fontSize: 12,
+                                color: ColorText),
+                          )
                         ],
                       ),
                     ),
@@ -151,8 +160,12 @@ class _ProductComponentState extends State<ProductComponent> {
                         runSpacing: 0,
                         spacing: 3,
                         children: <Widget>[
-                          PropertyComponent(iconName: 'location_on',content: 'Mesafe 3km'),
-                          PropertyComponent(iconName: 'access_time',content: 'Açık', color: ColorGreen),
+                          PropertyComponent(
+                              iconName: 'location_on', content: 'Mesafe 3km'),
+                          PropertyComponent(
+                              iconName: 'access_time',
+                              content: 'Açık',
+                              color: ColorGreen),
                         ],
                       ),
                     ),
@@ -163,9 +176,22 @@ class _ProductComponentState extends State<ProductComponent> {
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.only(left: 10, right: 5),
-                          child: Text('36,90TL', style: TextStyle(fontFamily: FontFamily.AvenirHeavy, fontSize: 16, color: ColorPriceDel, decoration: TextDecoration.lineThrough),),
+                          child: Text(
+                            '36,90TL',
+                            style: TextStyle(
+                                fontFamily: FontFamily.AvenirHeavy,
+                                fontSize: 16,
+                                color: ColorPriceDel,
+                                decoration: TextDecoration.lineThrough),
+                          ),
                         ),
-                        Text('32,25TL', style: TextStyle(fontFamily: FontFamily.AvenirHeavy, fontSize: 16, color: ColorPrimary),),
+                        Text(
+                          '32,25TL',
+                          style: TextStyle(
+                              fontFamily: FontFamily.AvenirHeavy,
+                              fontSize: 16,
+                              color: ColorPrimary),
+                        ),
                       ],
                     ),
                   )
@@ -178,14 +204,14 @@ class _ProductComponentState extends State<ProductComponent> {
     );
   }
 
-  void favOnPress() async {
+  void _favOnPress() async {
+    var result = await favIt(widget.id);
     setState(() {
-
+      favIcon = result;
     });
-    widget.favoriteOnPressedCallback();
   }
 
-  setIconData(bool isFav) {
-    this.iconData = isFav ? Icons.favorite : Icons.favorite_border;
+  _setIconData(bool isFav) {
+    this.favIcon = isFav ? Icon(Icons.favorite) : Icon(Icons.favorite_border);
   }
 }

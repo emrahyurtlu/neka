@@ -219,55 +219,45 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen> {
                   child: Column(
                     children: <Widget>[
                       ProductComponent(
-                          onTap: () {
-                            consoleLog('Hello');
-                          },
-                          title: 'Çaykur Kamelya Çayı 1000gr',
-                          image:
-                              'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
-                          favoriteOnPressedCallback: () {
-                            consoleLog('Hello');
-                          }),
+                        onTap: () {
+                          consoleLog('Hello');
+                        },
+                        title: 'Çaykur Kamelya Çayı 1000gr',
+                        image:
+                            'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                      ),
                       ProductComponent(
-                          onTap: () {
-                            consoleLog('Hello');
-                          },
-                          title: 'Çaykur Kamelya Çayı 1000gr',
-                          image:
-                              'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
-                          favoriteOnPressedCallback: () {
-                            consoleLog('Hello');
-                          }),
+                        onTap: () {
+                          consoleLog('Hello');
+                        },
+                        title: 'Çaykur Kamelya Çayı 1000gr',
+                        image:
+                            'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                      ),
                       ProductComponent(
-                          onTap: () {
-                            consoleLog('Hello');
-                          },
-                          title: 'Çaykur Kamelya Çayı 1000gr',
-                          image:
-                              'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
-                          favoriteOnPressedCallback: () {
-                            consoleLog('Hello');
-                          }),
+                        onTap: () {
+                          consoleLog('Hello');
+                        },
+                        title: 'Çaykur Kamelya Çayı 1000gr',
+                        image:
+                            'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                      ),
                       ProductComponent(
-                          onTap: () {
-                            consoleLog('Hello');
-                          },
-                          title: 'Çaykur Kamelya Çayı 1000gr',
-                          image:
-                              'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
-                          favoriteOnPressedCallback: () {
-                            consoleLog('Hello');
-                          }),
+                        onTap: () {
+                          consoleLog('Hello');
+                        },
+                        title: 'Çaykur Kamelya Çayı 1000gr',
+                        image:
+                            'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                      ),
                       ProductComponent(
-                          onTap: () {
-                            consoleLog('Hello');
-                          },
-                          title: 'Çaykur Kamelya Çayı 1000gr',
-                          image:
-                              'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
-                          favoriteOnPressedCallback: () {
-                            consoleLog('Hello');
-                          }),
+                        onTap: () {
+                          consoleLog('Hello');
+                        },
+                        title: 'Çaykur Kamelya Çayı 1000gr',
+                        image:
+                            'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                      ),
                     ],
                   ),
                 )

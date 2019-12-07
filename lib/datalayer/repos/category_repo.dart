@@ -17,8 +17,13 @@ class CategoryRepo implements AbstractBaseRepo<CategoryModel> {
   Future<CategoryModel> get(int id) async {
     var client = await _helper.db;
     var result = await client.query(_table, where: 'id=?', whereArgs: [id]);
-    CategoryModel model = CategoryModel.from(result.first);
-    return model;
+
+    if (result != null) {
+      CategoryModel model = CategoryModel.from(result.first);
+      return model;
+    }
+
+    return null;
   }
 
   @override
@@ -26,20 +31,25 @@ class CategoryRepo implements AbstractBaseRepo<CategoryModel> {
     var client = await _helper.db;
     var result = await client.query(_table,
         orderBy: 'id', where: where, whereArgs: args);
-    return result.map((map) => CategoryModel.from(map)).toList();
+
+    if (result != null) {
+      return result.map((map) => CategoryModel.from(map)).toList();
+    }
+
+    return null;
   }
 
   @override
-  Future<int> insert(CategoryModel entity) async {
+  Future<int> insert(CategoryModel model) async {
     var client = await _helper.db;
-    var result = await client.insert(_table, entity.toMap());
+    var result = await client.insert(_table, model.toMap());
     return result;
   }
 
   @override
-  Future<int> update(CategoryModel entity, int id) async {
+  Future<int> update(CategoryModel model, int id) async {
     var client = await _helper.db;
-    var result = await client.update(_table, entity.toMap(withId: false),
+    var result = await client.update(_table, model.toMap(withId: false),
         where: "id=?", whereArgs: [id]);
     return result;
   }

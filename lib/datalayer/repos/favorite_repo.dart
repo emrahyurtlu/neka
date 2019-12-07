@@ -17,8 +17,12 @@ class FavoriteRepo implements AbstractBaseRepo<FavoriteModel> {
   Future<FavoriteModel> get(int id) async {
     var client = await _helper.db;
     var result = await client.query(_table, where: 'id=?', whereArgs: [id]);
-    FavoriteModel model = FavoriteModel.from(result.first);
-    return model;
+
+    if (result != null) {
+      FavoriteModel model = FavoriteModel.from(result.first);
+      return model;
+    }
+    return null;
   }
 
   @override
@@ -26,20 +30,24 @@ class FavoriteRepo implements AbstractBaseRepo<FavoriteModel> {
     var client = await _helper.db;
     var result = await client.query(_table,
         orderBy: 'id', where: where, whereArgs: args);
-    return result.map((map) => FavoriteModel.from(map)).toList();
+
+    if (result != null) {
+      return result.map((map) => FavoriteModel.from(map)).toList();
+    }
+    return null;
   }
 
   @override
-  Future<int> insert(FavoriteModel entity) async {
+  Future<int> insert(FavoriteModel model) async {
     var client = await _helper.db;
-    var result = await client.insert(_table, entity.toMap());
+    var result = await client.insert(_table, model.toMap());
     return result;
   }
 
   @override
-  Future<int> update(FavoriteModel entity, int id) async {
+  Future<int> update(FavoriteModel model, int id) async {
     var client = await _helper.db;
-    var result = await client.update(_table, entity.toMap(withId: false),
+    var result = await client.update(_table, model.toMap(withId: false),
         where: "id=?", whereArgs: [id]);
     return result;
   }

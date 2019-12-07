@@ -1,7 +1,7 @@
 abstract class AbstractBaseRepo<T> {
-  Future<int> insert(T entity);
+  Future<int> insert(T model);
 
-  Future<int> update(T entity, int id);
+  Future<int> update(T model, int id);
 
   Future<int> delete(int id);
 
