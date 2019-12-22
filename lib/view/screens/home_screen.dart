@@ -197,7 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         onTap: () {
                           consoleLog('Hello');
                         },
-                        title: 'Çaykur Rize Çayı 1000gr',
+                        title: '5 Adet 500gr  ya da Çaykur  Rize Çayı 1000gr',
                         image:
                             'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
                         id: 1,
@@ -206,7 +206,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         onTap: () {
                           consoleLog('Hello');
                         },
-                        title: 'Doğuş Filiz Çay Çayı 1000gr',
+                        title: 'Doğuş Filiz Çay 1000gr',
                         image:
                         'https://productimages.hepsiburada.net/s/19/1500/9830599000114.jpg',
                         id: 2,
@@ -288,6 +288,5 @@ class _HomeScreenState extends State<HomeScreen> {
             ]);
       }
     }
-    ;
   }
 }

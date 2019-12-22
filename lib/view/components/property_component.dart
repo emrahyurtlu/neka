@@ -15,7 +15,7 @@ class PropertyComponent extends StatelessWidget {
   PropertyComponent.fromJson(Map<String, dynamic> json)
       : iconName = json["iconName"],
         content = json["content"],
-        fontSize = 13,
+        fontSize = 14,
         color = ColorText,
         padding = const EdgeInsets.all(0);
 
@@ -23,7 +23,7 @@ class PropertyComponent extends StatelessWidget {
     @required this.iconName,
     @required this.content,
     this.color = ColorText,
-    this.fontSize = 13,
+    this.fontSize = 14,
     this.padding = const EdgeInsets.only(left: 2),
   })  : assert(iconName != null, "IconName cannot be null"),
         assert(content != null, "Content cannot be null");
