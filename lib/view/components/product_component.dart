@@ -1,8 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:neka/business/favorite_service.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
+import 'package:neka/utils/console_log_util.dart';
 import 'package:neka/view/components/divider_component.dart';
 import 'package:neka/view/components/property_component.dart';
 
@@ -46,7 +48,7 @@ class _ProductComponentState extends State<ProductComponent> {
   Widget build(BuildContext context) {
     return Container(
         width: double.infinity,
-        height: 200,
+        //height: 212,
         margin: EdgeInsets.all(5),
         padding: EdgeInsets.all(5),
         decoration: BoxDecoration(
@@ -90,18 +92,22 @@ class _ProductComponentState extends State<ProductComponent> {
 // not shown here).
                 PopupMenuButton<String>(
                   //child: Text('Hello'),
-                  icon: Icon(Icons.more_vert),
+                  icon: Icon(Icons.more_horiz),
                   onSelected: (String result) {
                     setState(() {});
                   },
                   itemBuilder: (BuildContext context) =>
                       <PopupMenuEntry<String>>[
-                    const PopupMenuItem<String>(
+                    PopupMenuItem<String>(
                       value: '',
-                      child: Text('Yanlış bilgi'),
+                      child: Text('Takip et'),
                     ),
-                    const PopupMenuItem<String>(
-                      value: 'WhyFarther.smarter',
+                    PopupMenuItem<String>(
+                      value: '',
+                      child: Text('Şikayet et'),
+                    ),
+                    PopupMenuItem<String>(
+                      value: '',
                       child: Text('Kaydet'),
                     ),
                   ],
@@ -147,6 +153,7 @@ class _ProductComponentState extends State<ProductComponent> {
                         //Title Section
                         Container(
                           //height: 30,
+                          width: MediaQuery.of(context).size.width - 130,
                           padding: EdgeInsets.only(top: 0, left: 5, bottom: 5),
                           child: Stack(
                             children: <Widget>[
@@ -154,12 +161,12 @@ class _ProductComponentState extends State<ProductComponent> {
                                   onTap: widget.onTap,
                                   child: Text(
                                     widget.title,
-                                    overflow: TextOverflow.clip,
+                                    overflow: TextOverflow.fade,
                                     softWrap: true,
                                     maxLines: 2,
                                     style: TextStyle(
                                         fontFamily: FontFamily.AvenirMedium,
-                                        fontSize: 14,
+                                        fontSize: 15,
                                         color: ColorHeader),
                                   )),
                               //Favorite Button
@@ -186,7 +193,7 @@ class _ProductComponentState extends State<ProductComponent> {
                           onTap: widget.onTap,
                           child: Container(
                             padding: EdgeInsets.only(left: 5),
-                            width: 290,
+                            width: 280,
                             child: Wrap(
                               direction: Axis.horizontal,
                               alignment: WrapAlignment.start,
@@ -205,39 +212,15 @@ class _ProductComponentState extends State<ProductComponent> {
                                 PropertyComponent(
                                     iconName: 'location_on',
                                     content: 'Mesafe 3km'),
-                                PropertyComponent(
-                                    iconName: 'access_time',
-                                    content: 'Açık',
-                                    color: ColorGreen),
                               ],
                             ),
                           ),
                         ),
-                        /*GestureDetector(
-                          onTap: widget.onTap,
-                          child: Container(
-                            padding: EdgeInsets.only(left: 5),
-                            //width: 304,
-                            child: Wrap(
-                              direction: Axis.horizontal,
-                              alignment: WrapAlignment.start,
-                              runSpacing: 0,
-                              spacing: 3,
-                              children: <Widget>[
-                                PropertyComponent(
-                                    iconName: 'calendar_today',
-                                    content: '18.12.2019 12:36'),
-                                PropertyComponent(
-                                    iconName: 'location_on',
-                                    content: 'Mesafe 3km'),
-                              ],
-                            ),
-                          ),
-                        ),*/
                         GestureDetector(
                           onTap: widget.onTap,
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 5, right: 5, top: 5),
+                            padding: const EdgeInsets.only(
+                                left: 5, right: 5, top: 5),
                             child: Row(
                               children: <Widget>[
                                 Text(
@@ -276,17 +259,80 @@ class _ProductComponentState extends State<ProductComponent> {
 
             // Footer Actions
             Padding(
-              padding: EdgeInsets.all(5),
+              padding: EdgeInsets.only(left: 5, right: 5, bottom: 5, top: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('Beğen'),
-                  Text('Yorum yap'),
-                  Text('Paylaş'),
+                  InkWell(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(right: 5),
+                          child: Icon(
+                            Icons.thumb_up,
+                            size: 14,
+                            color: ColorDark,
+                          ),
+                        ),
+                        Text(
+                          'Beğen',
+                          style: TextStyle(color: ColorDark, fontSize: 14),
+                        ),
+                      ],
+                    ),
+                    onTap: () {
+                      consoleLog("Beğendim");
+                    },
+                  ),
+                  InkWell(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(right: 5),
+                          child: Icon(
+                            Icons.insert_comment,
+                            size: 14,
+                            color: ColorDark,
+                          ),
+                        ),
+                        Text(
+                          'Yorum yap',
+                          style: TextStyle(color: ColorDark, fontSize: 14),
+                        ),
+                      ],
+                    ),
+                    onTap: () {
+                      consoleLog("Yorum yaptım");
+                    },
+                  ),
+                  InkWell(
+                    highlightColor: ColorPrimary,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(right: 5),
+                          child: Icon(
+                            Icons.share,
+                            size: 14,
+                            color: ColorDark,
+                          ),
+                        ),
+                        Text(
+                          'Paylaş',
+                          style: TextStyle(color: ColorDark, fontSize: 14),
+                        ),
+                      ],
+                    ),
+                    onTap: () {
+                      consoleLog("Paylaştım");
+                    },
+                  ),
                 ],
               ),
             ),
-
           ],
         ));
   }
