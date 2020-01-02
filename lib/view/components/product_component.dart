@@ -46,7 +46,7 @@ class _ProductComponentState extends State<ProductComponent> {
   Widget build(BuildContext context) {
     return Container(
         width: double.infinity,
-        height: 170,
+        height: 200,
         margin: EdgeInsets.all(5),
         padding: EdgeInsets.all(5),
         decoration: BoxDecoration(
@@ -73,7 +73,7 @@ class _ProductComponentState extends State<ProductComponent> {
                     children: <Widget>[
                       Text('Emrah Yurtlu',
                           style: TextStyle(
-                              fontFamily: FontFamily.AvenirHeavy,
+                              fontFamily: FontFamily.AvenirMedium,
                               fontSize: 16,
                               color: ColorDark)),
                       Text('18.12.2019 12:36',
@@ -154,10 +154,12 @@ class _ProductComponentState extends State<ProductComponent> {
                                   onTap: widget.onTap,
                                   child: Text(
                                     widget.title,
+                                    overflow: TextOverflow.clip,
+                                    softWrap: true,
                                     maxLines: 2,
                                     style: TextStyle(
                                         fontFamily: FontFamily.AvenirMedium,
-                                        fontSize: 15,
+                                        fontSize: 14,
                                         color: ColorHeader),
                                   )),
                               //Favorite Button
@@ -271,6 +273,20 @@ class _ProductComponentState extends State<ProductComponent> {
               padding: EdgeInsets.only(top: 5, bottom: 5),
               child: DividerComponent(),
             ),
+
+            // Footer Actions
+            Padding(
+              padding: EdgeInsets.all(5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text('Beğen'),
+                  Text('Yorum yap'),
+                  Text('Paylaş'),
+                ],
+              ),
+            ),
+
           ],
         ));
   }
