@@ -4,6 +4,7 @@ import 'package:neka/settings/font_families.dart';
 import 'package:neka/utils/console_log_util.dart';
 import 'package:neka/utils/route_util.dart';
 import 'package:neka/view/components/category_component.dart';
+import 'package:neka/view/components/head_component.dart';
 import 'package:neka/view/components/header_component.dart';
 import 'package:neka/view/screens/category_detail_screen.dart';
 
@@ -17,6 +18,8 @@ class CategoriesScreen extends StatefulWidget {
 }
 
 class _CategoriesScreenState extends State<CategoriesScreen> {
+  var _searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,9 +37,15 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             )
           : null,
       body: Padding(
-        padding: EdgeInsets.all(10),
+        padding: widget.showAppbar
+            ? EdgeInsets.only(right: 5, left: 5, top: 10, bottom: 5)
+            : EdgeInsets.all(5),
         child: ListView(
           children: <Widget>[
+            HeadComponent(
+              controller: _searchController,
+              context: context,
+            ),
             Padding(
               padding: const EdgeInsets.only(top: 20, bottom: 10),
               child: Header(

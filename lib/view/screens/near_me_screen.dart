@@ -3,6 +3,7 @@ import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
 import 'package:neka/utils/console_log_util.dart';
 import 'package:neka/utils/route_util.dart';
+import 'package:neka/view/components/head_component.dart';
 import 'package:neka/view/components/header_component.dart';
 import 'package:neka/view/components/store_component.dart';
 import 'package:neka/view/screens/business_detail_screen.dart';
@@ -13,12 +14,18 @@ class NearMeScreen extends StatefulWidget {
 }
 
 class _NearMeScreenState extends State<NearMeScreen> {
+  var _searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(5),
       child: ListView(
         children: <Widget>[
+          HeadComponent(
+            controller: _searchController,
+            context: context,
+          ),
           Padding(
             padding: const EdgeInsets.only(top: 20, bottom: 10),
             child: Header(

@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:neka/business/appdata_service.dart';
@@ -11,9 +10,9 @@ import 'package:neka/utils/message_util.dart';
 import 'package:neka/utils/route_util.dart';
 import 'package:neka/utils/string_util.dart';
 import 'package:neka/view/components/category_component.dart';
+import 'package:neka/view/components/head_component.dart';
 import 'package:neka/view/components/header_component.dart';
 import 'package:neka/view/components/product_component.dart';
-import 'package:neka/view/components/search_form_component.dart';
 import 'package:neka/view/screens/categories_screen.dart';
 import 'package:neka/view/screens/category_detail_screen.dart';
 import 'package:neka/view/screens/change_location_screen.dart';
@@ -25,8 +24,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   LocationService _locationService;
-
-  //String _addrLabel = "Konumunuz hazırlanıyor.";
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  var _searchController = TextEditingController();
 
   @override
   void initState() {
@@ -40,9 +39,6 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
-  var _searchController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,59 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Padding(
           padding: const EdgeInsets.all(5),
           child: ListView(children: <Widget>[
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                GestureDetector(
-                  onTap: () {
-                    _scaffoldKey.currentState.openDrawer();
-                  },
-                  child: Container(
-                    width: 50,
-                    height: 50,
-                    margin: EdgeInsets.only(right: 5),
-                    child: CircleAvatar(
-                      child: ClipOval(
-                          child: CachedNetworkImage(
-                        imageUrl:
-                            'https://content-static.upwork.com/uploads/2014/10/02123010/profilephoto_goodcrop.jpg',
-                        width: 43,
-                        height: 43,
-                        placeholder: (context, url) =>
-                            CircularProgressIndicator(),
-                        errorWidget: (context, url, error) => Icon(Icons.error),
-                      )),
-                      radius: 23,
-                      backgroundColor: AppColor.LightGray,
-                    ),
-                  ),
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width - (120),
-                  height: 50,
-                  child: SearchFormComponent(
-                    controller: _searchController,
-                    onPressed: () => consoleLog(_searchController.text),
-                    labelText: 'Ara...',
-                    width: MediaQuery.of(context).size.width - (130),
-                  ),
-                ),
-                Container(
-                  width: 50,
-                  height: 50,
-                  child: FlatButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(25.0),
-                        //side: BorderSide(color: Colors.red)
-                    ),
-                    child: Image.asset("assets/images/barcode.png", color: AppColor.White, width: 48, height: 48,),
-                    onPressed: () {
-                      consoleLog("Barkod taranıyor.");
-                    },
-                    color: AppColor.Primary,
-                  ),
-                ),
-              ],
+            HeadComponent(
+              controller: _searchController,
+              context: context,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,

@@ -51,7 +51,7 @@ class _MenuScreenState extends State<MenuScreen> {
         ),*/
         drawer: DrawerComponent(),
         body: Padding(
-          padding: const EdgeInsets.only(top: 10),
+          padding: const EdgeInsets.only(top: 20),
           child: _tabContents[currentTab],
         ),
         bottomNavigationBar: BottomNavigationComponent(

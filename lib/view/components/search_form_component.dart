@@ -76,21 +76,6 @@ class _SearchFormComponentState extends State<SearchFormComponent> {
                               border: InputBorder.none,
                               contentPadding: EdgeInsets.only(left: 25, top: 5),
                               prefixIcon: Icon(Icons.search),
-                              /*suffixIcon: GestureDetector(
-                                //child: Icon(Icons.center_focus_strong),
-                                child: SizedBox(
-                                  width: 9,
-                                  height: 9,
-                                  child: Image.asset(
-                                    'assets/images/barcode.png',
-                                    width: 10,
-                                    height: 10,
-                                    color: AppColor.Text,
-                                  ),
-                                ),
-                                onTap: () =>
-                                    consoleLog("Barkod tarayıcı çalıştı."),
-                              ),*/
                             ),
                           ),
                         ),
