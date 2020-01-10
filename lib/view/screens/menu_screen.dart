@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:neka/settings/colors.dart';
-import 'package:neka/settings/font_families.dart';
 import 'package:neka/view/components/bottom_nav_component.dart';
 import 'package:neka/view/components/drawer_component.dart';
 import 'package:neka/view/screens/categories_screen.dart';
@@ -42,7 +40,7 @@ class _MenuScreenState extends State<MenuScreen> {
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
-        appBar: AppBar(
+        /*appBar: AppBar(
           title: Text('Neka',
               style: TextStyle(
                   fontFamily: FontFamily.AvenirMedium,
@@ -50,9 +48,12 @@ class _MenuScreenState extends State<MenuScreen> {
                   color: AppColor.Primary)),
           backgroundColor: AppColor.White,
           iconTheme: IconThemeData(color: AppColor.Primary),
-        ),
+        ),*/
         drawer: DrawerComponent(),
-        body: _tabContents[currentTab],
+        body: Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: _tabContents[currentTab],
+        ),
         bottomNavigationBar: BottomNavigationComponent(
           currentIndex: currentTab,
           onTap: onTabTapped,

@@ -8,10 +8,10 @@ import 'settings/colors.dart';
 import 'settings/font_families.dart';
 
 void main() {
-  SystemChrome.setPreferredOrientations([
+  /*SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
-  ]);
+  ]);*/
   runApp(Neka());
 }
 

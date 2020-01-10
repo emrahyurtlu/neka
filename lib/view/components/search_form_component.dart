@@ -7,12 +7,14 @@ class SearchFormComponent extends StatefulWidget {
   final VoidCallback onPressed;
   final ValueChanged<String> onChanged;
   final String labelText;
+  final double width;
 
   SearchFormComponent(
       {@required this.controller,
       @required this.onPressed,
       this.onChanged,
-      this.labelText});
+      this.labelText,
+      this.width = 300});
 
   @override
   _SearchFormComponentState createState() => _SearchFormComponentState();
@@ -24,10 +26,6 @@ class _SearchFormComponentState extends State<SearchFormComponent> {
 
   @override
   void initState() {
-    _focusNode.addListener(() {
-      print("Has focus: ${_focusNode.hasFocus}");
-    });
-
     super.initState();
   }
 
@@ -40,9 +38,8 @@ class _SearchFormComponentState extends State<SearchFormComponent> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      //width: double.infinity,
       height: 70,
-      padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.elliptical(10, 10)),
           border: Border.all(color: Colors.white),
@@ -55,7 +52,7 @@ class _SearchFormComponentState extends State<SearchFormComponent> {
                 child: Column(
               children: <Widget>[
                 SizedBox(
-                  width: 280,
+                  width: widget.width,
                   height: 48,
                   child: Column(
                     children: <Widget>[
@@ -64,7 +61,7 @@ class _SearchFormComponentState extends State<SearchFormComponent> {
                         child: DecoratedBox(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            color: AppColor.Light,
+                            color: AppColor.LightGray,
                           ),
                           child: TextField(
                             controller: widget.controller,
@@ -79,11 +76,21 @@ class _SearchFormComponentState extends State<SearchFormComponent> {
                               border: InputBorder.none,
                               contentPadding: EdgeInsets.only(left: 25, top: 5),
                               prefixIcon: Icon(Icons.search),
-                              suffixIcon: GestureDetector(
-                                child: Icon(Icons.center_focus_strong),
+                              /*suffixIcon: GestureDetector(
+                                //child: Icon(Icons.center_focus_strong),
+                                child: SizedBox(
+                                  width: 9,
+                                  height: 9,
+                                  child: Image.asset(
+                                    'assets/images/barcode.png',
+                                    width: 10,
+                                    height: 10,
+                                    color: AppColor.Text,
+                                  ),
+                                ),
                                 onTap: () =>
                                     consoleLog("Barkod tarayıcı çalıştı."),
-                              ),
+                              ),*/
                             ),
                           ),
                         ),
