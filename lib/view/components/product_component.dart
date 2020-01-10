@@ -53,8 +53,8 @@ class _ProductComponentState extends State<ProductComponent> {
         padding: EdgeInsets.all(5),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.elliptical(10, 10)),
-            border: Border.all(color: ColorLight),
-            color: ColorWhite),
+            border: Border.all(color: AppColor.Light),
+            color: AppColor.White),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -77,12 +77,12 @@ class _ProductComponentState extends State<ProductComponent> {
                           style: TextStyle(
                               fontFamily: FontFamily.AvenirMedium,
                               fontSize: 16,
-                              color: ColorDark)),
+                              color: AppColor.Dark)),
                       Text('18.12.2019 12:36',
                           style: TextStyle(
                               fontFamily: FontFamily.AvenirMedium,
                               fontSize: 12,
-                              color: ColorDark)),
+                              color: AppColor.Dark)),
                     ],
                   ),
                 ),
@@ -167,7 +167,7 @@ class _ProductComponentState extends State<ProductComponent> {
                                     style: TextStyle(
                                         fontFamily: FontFamily.AvenirMedium,
                                         fontSize: 15,
-                                        color: ColorHeader),
+                                        color: AppColor.Header),
                                   )),
                               //Favorite Button
                               /*Positioned(
@@ -180,7 +180,7 @@ class _ProductComponentState extends State<ProductComponent> {
                                   iconSize: 24,
                                   padding: EdgeInsets.all(0),
                                   onPressed: _favOnPress,
-                                  color: ColorPrimary,
+                                  color: AppColor.ColorPrimary,
                                 ),
                               ),
                               top: 0,
@@ -207,7 +207,7 @@ class _ProductComponentState extends State<ProductComponent> {
                                   style: TextStyle(
                                       fontFamily: FontFamily.AvenirBook,
                                       fontSize: 14,
-                                      color: ColorText),
+                                      color: AppColor.Text),
                                 ),
                                 PropertyComponent(
                                     iconName: 'location_on',
@@ -228,7 +228,7 @@ class _ProductComponentState extends State<ProductComponent> {
                                   style: TextStyle(
                                       fontFamily: FontFamily.AvenirHeavy,
                                       fontSize: 16,
-                                      color: ColorPriceDel,
+                                      color: AppColor.PriceDel,
                                       decoration: TextDecoration.lineThrough),
                                 ),
                                 Padding(
@@ -238,7 +238,7 @@ class _ProductComponentState extends State<ProductComponent> {
                                     style: TextStyle(
                                         fontFamily: FontFamily.AvenirHeavy,
                                         fontSize: 16,
-                                        color: ColorPrimary),
+                                        color: AppColor.Primary),
                                   ),
                                 ),
                               ],
@@ -272,12 +272,12 @@ class _ProductComponentState extends State<ProductComponent> {
                           child: Icon(
                             Icons.thumb_up,
                             size: 14,
-                            color: ColorDark,
+                            color: AppColor.Dark,
                           ),
                         ),
                         Text(
                           'Beğen',
-                          style: TextStyle(color: ColorDark, fontSize: 14),
+                          style: TextStyle(color: AppColor.Dark, fontSize: 14),
                         ),
                       ],
                     ),
@@ -294,12 +294,12 @@ class _ProductComponentState extends State<ProductComponent> {
                           child: Icon(
                             Icons.insert_comment,
                             size: 14,
-                            color: ColorDark,
+                            color: AppColor.Dark,
                           ),
                         ),
                         Text(
                           'Yorum yap',
-                          style: TextStyle(color: ColorDark, fontSize: 14),
+                          style: TextStyle(color: AppColor.Dark, fontSize: 14),
                         ),
                       ],
                     ),
@@ -308,7 +308,7 @@ class _ProductComponentState extends State<ProductComponent> {
                     },
                   ),
                   InkWell(
-                    highlightColor: ColorPrimary,
+                    highlightColor: AppColor.Primary,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -317,12 +317,12 @@ class _ProductComponentState extends State<ProductComponent> {
                           child: Icon(
                             Icons.share,
                             size: 14,
-                            color: ColorDark,
+                            color: AppColor.Dark,
                           ),
                         ),
                         Text(
                           'Paylaş',
-                          style: TextStyle(color: ColorDark, fontSize: 14),
+                          style: TextStyle(color: AppColor.Dark, fontSize: 14),
                         ),
                       ],
                     ),

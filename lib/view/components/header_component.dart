@@ -50,12 +50,12 @@ class Header extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 14,
                           fontFamily: FontFamily.AvenirBook,
-                          color: ColorSecondary),
+                          color: AppColor.Secondary),
                     ),
                     Icon(
                       Icons.arrow_forward_ios,
                       size: 14,
-                      color: ColorSecondary,
+                      color: AppColor.Secondary,
                     )
                   ],
                 ),

@@ -7,7 +7,7 @@ class SplashScreen extends StatelessWidget {
     return Container(
       child: Image.asset('assets/images/logo.png'),
       decoration: BoxDecoration(
-        color: ColorPrimary
+        color: AppColor.Primary
       ),
     );
   }

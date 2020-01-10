@@ -42,13 +42,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
       key: _scaffoldKey,
       appBar: AppBar(
         title: Text("Üye Olun", style: AppStyle.AppBarTextStyle),
-        backgroundColor: ColorWhite,
+        backgroundColor: AppColor.White,
         centerTitle: false,
-        iconTheme: IconThemeData(color: ColorPrimary),
+        iconTheme: IconThemeData(color: AppColor.Primary),
       ),
       body: SafeArea(
         child: Container(
-          color: ColorWhite,
+          color: AppColor.White,
           child: ListView(
             children: <Widget>[
               Padding(

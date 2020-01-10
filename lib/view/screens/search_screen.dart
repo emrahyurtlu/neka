@@ -33,13 +33,13 @@ class _SearchScreenState extends State<SearchScreen> {
                     'Ürün yada İşletme arayın',
                     fontSize: 16,
                     fontFamily: FontFamily.AvenirHeavy,
-                    color: ColorText,
+                    color: AppColor.Text,
                   )),
               Container(
                 padding: EdgeInsets.all(0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(50)),
-                  border: Border.all(color: ColorText),
+                  border: Border.all(color: AppColor.Text),
                   color: Color.fromRGBO(250, 250, 250, 1),
                 ),
                 child: Column(

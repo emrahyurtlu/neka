@@ -43,13 +43,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
       key: _scaffoldKey,
       appBar: AppBar(
         title: Text("Profilim", style: AppStyle.AppBarTextStyle),
-        backgroundColor: ColorWhite,
+        backgroundColor: AppColor.White,
         centerTitle: false,
-        iconTheme: IconThemeData(color: ColorPrimary),
+        iconTheme: IconThemeData(color: AppColor.Primary),
       ),
       body: SafeArea(
         child: Container(
-          color: ColorWhite,
+          color: AppColor.White,
           child: ListView(
             children: <Widget>[
               Padding(

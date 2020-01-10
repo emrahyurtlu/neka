@@ -39,7 +39,7 @@ class _SignInScreenState extends State<SignInScreen> {
     return Scaffold(
       key: _scaffoldKey,
       body: Container(
-        color: ColorWhite,
+        color: AppColor.White,
         child: ListView(
           children: <Widget>[
             Padding(
@@ -87,7 +87,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         redirectTo(context, ForgetPasswordScreen());
                       },
                       color: Colors.transparent,
-                      textColor: ColorText,
+                      textColor: AppColor.Text,
                     ),
                   ),
 
@@ -96,8 +96,8 @@ class _SignInScreenState extends State<SignInScreen> {
                     margin: EdgeInsets.only(top: 30),
                     child: ButtonComponent(
                       text: "Facebook ile giriş yap",
-                      color: ColorFacebook,
-                      textColor: ColorWhite,
+                      color: AppColor.Facebook,
+                      textColor: AppColor.White,
                       onPressed: () async {},
                     ),
                   ),
@@ -105,8 +105,8 @@ class _SignInScreenState extends State<SignInScreen> {
                   //Google
                   ButtonComponent(
                       text: "Google ile giriş yap",
-                      color: ColorGoogle,
-                      textColor: ColorWhite,
+                      color: AppColor.Google,
+                      textColor: AppColor.White,
                       onPressed: () async {}),
 
                   //Sign Up
@@ -123,7 +123,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         );
                       },
                       color: Colors.white,
-                      textColor: ColorText,
+                      textColor: AppColor.Text,
                     ),
                   ),
                 ],

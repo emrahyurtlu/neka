@@ -7,7 +7,7 @@ class ChipComponent extends StatefulWidget {
   final Color backgroundColor;
 
   const ChipComponent(
-      {Key key, this.label, this.onTap, this.backgroundColor = ColorSecondary})
+      {Key key, this.label, this.onTap, this.backgroundColor = AppColor.Secondary})
       : super(key: key);
 
   @override
@@ -24,7 +24,7 @@ class _ChipComponentState extends State<ChipComponent> {
         child: Chip(
           label: Text(widget.label),
           backgroundColor: widget.backgroundColor,
-          labelStyle: TextStyle(color: ColorWhite),
+          labelStyle: TextStyle(color: AppColor.White),
           labelPadding: EdgeInsets.only(left: 10, right: 10),
         ),
       ),

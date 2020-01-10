@@ -30,10 +30,10 @@ class _DrawerComponentState extends State<DrawerComponent> {
           UserAccountsDrawerHeader(
             accountName: Text(
               'Emrah Yurtlu',
-              style: TextStyle(color: ColorWhite),
+              style: TextStyle(color: AppColor.White),
             ),
             accountEmail: Text('emrahyurtlu@gmail.com',
-                style: TextStyle(color: ColorWhite)),
+                style: TextStyle(color: AppColor.White)),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
                   child: CachedNetworkImage(
@@ -45,9 +45,9 @@ class _DrawerComponentState extends State<DrawerComponent> {
                 errorWidget: (context, url, error) => Icon(Icons.error),
               )),
               radius: 50,
-              backgroundColor: ColorLight,
+              backgroundColor: AppColor.Light,
             ),
-            decoration: BoxDecoration(color: ColorPrimary),
+            decoration: BoxDecoration(color: AppColor.Primary),
           ),
 
           ListTile(

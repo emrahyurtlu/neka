@@ -51,7 +51,7 @@ class _StoreComponentState extends State<StoreComponent> {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.elliptical(10, 10)),
           border: Border.all(color: Color.fromRGBO(241, 241, 241, 1)),
-          color: ColorWhite),
+          color: AppColor.White),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
@@ -101,7 +101,7 @@ class _StoreComponentState extends State<StoreComponent> {
                             style: TextStyle(
                                 fontFamily: FontFamily.AvenirMedium,
                                 fontSize: 15,
-                                color: ColorHeader),
+                                color: AppColor.Header),
                           ),
                         ),
                         //Favorite Button
@@ -115,7 +115,7 @@ class _StoreComponentState extends State<StoreComponent> {
                               iconSize: 24,
                               padding: EdgeInsets.all(0),
                               onPressed: favOnPress,
-                              color: ColorPrimary,
+                              color: AppColor.Primary,
                             ),
                           ),
                           top: 0,
@@ -136,7 +136,7 @@ class _StoreComponentState extends State<StoreComponent> {
                         spacing: 3,
                         children: <Widget>[
                           PropertyComponent(iconName: 'location_on',content: 'Mesafe 3km'),
-                          PropertyComponent(iconName: 'access_time',content: 'Açık', color: ColorGreen),
+                          PropertyComponent(iconName: 'access_time',content: 'Açık', color: AppColor.Green),
                         ],
                       ),
                     ),
@@ -151,8 +151,8 @@ class _StoreComponentState extends State<StoreComponent> {
                             rating: widget.rating,
                             itemCount: 5,
                             itemSize: 20,
-                            emptyColor: ColorDark,
-                            fillColor: ColorYellow,
+                            emptyColor: AppColor.Dark,
+                            fillColor: AppColor.Yellow,
                             itemPadding: EdgeInsets.only(right: 2),
                           ),
                         ),

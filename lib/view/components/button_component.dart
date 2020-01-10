@@ -16,8 +16,8 @@ class ButtonComponent extends StatefulWidget {
         this.icon,
         this.text,
         @required this.onPressed,
-        this.color = ColorPrimary,
-        this.textColor = ColorWhite});
+        this.color = AppColor.Primary,
+        this.textColor = AppColor.White});
 
   @override
   _ButtonComponentState createState() => _ButtonComponentState();

@@ -11,7 +11,7 @@ class SmartTab extends StatefulWidget {
   Color indicatorColor;
   Color labelColor;
 
-  SmartTab({@required this.tabs, @required this.pages, this.containerPadding, this.background = ColorPrimary, this.indicatorColor = ColorWhite, this.labelColor = ColorWhite})
+  SmartTab({@required this.tabs, @required this.pages, this.containerPadding, this.background = AppColor.Primary, this.indicatorColor = AppColor.White, this.labelColor = AppColor.White})
       : assert(tabs.isNotEmpty, "Tab length is equal to 0"),
         assert(pages.isNotEmpty, "Tab content length is equal to 0"),
         assert(tabs.length == pages.length,

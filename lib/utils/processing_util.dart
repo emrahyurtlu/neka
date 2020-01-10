@@ -10,7 +10,7 @@ void processing(BuildContext context,
           content: Row(
             children: <Widget>[
               CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(ColorPrimary),
+                valueColor: AlwaysStoppedAnimation<Color>(AppColor.Primary),
               ),
               Padding(
                 padding: EdgeInsets.only(left: 15),

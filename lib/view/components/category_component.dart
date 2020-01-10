@@ -29,7 +29,7 @@ class CategoryComponent extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: FontFamily.AvenirBook,
                     fontSize: 13,
-                    color: ColorText,
+                    color: AppColor.Text,
                   )),
             )
           ],

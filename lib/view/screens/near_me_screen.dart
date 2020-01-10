@@ -25,7 +25,7 @@ class _NearMeScreenState extends State<NearMeScreen> {
               'Yakındaki Marketler',
               fontSize: 16,
               fontFamily: FontFamily.AvenirHeavy,
-              color: ColorText,
+              color: AppColor.Text,
               linkOnTap: () {
                 consoleLog('Yakındaki İşletmeler');
               },

@@ -53,7 +53,7 @@ class _TextInputComponentState extends State<TextInputComponent> {
               enabled: widget.enabled,
               onChanged: widget.onChanged,
               decoration: InputDecoration(
-                  labelStyle: TextStyle(color: ColorText),
+                  labelStyle: TextStyle(color: AppColor.Text),
                   labelText: widget.labelText,
                   hintText: widget.hintText,
                   contentPadding: widget.contentPadding,

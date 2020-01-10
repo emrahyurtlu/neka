@@ -5,5 +5,5 @@ import 'font_families.dart';
 
 class AppStyle {
   static const TextStyle AppBarTextStyle =
-      TextStyle(color: ColorPrimary, fontFamily: FontFamily.AvenirBook);
+      TextStyle(color: AppColor.Primary, fontFamily: FontFamily.AvenirBook);
 }

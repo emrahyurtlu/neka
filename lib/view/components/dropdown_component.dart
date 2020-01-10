@@ -39,14 +39,14 @@ class _DropdownComponentState extends State<DropdownComponent> {
                 value: widget.selected,
                 hint: Text(
                   widget.hintText,
-                  style: TextStyle(color: ColorText),
+                  style: TextStyle(color: AppColor.Text),
                 ),
                 onChanged: widget.onChanged,
                 items: widget.options
                     .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
-                    child: Text(value, style: TextStyle(color: ColorText),),
+                    child: Text(value, style: TextStyle(color: AppColor.Text),),
                   );
                 }).toList(),
               ),

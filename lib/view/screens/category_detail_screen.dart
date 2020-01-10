@@ -37,14 +37,14 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen>
     return Scaffold(
       appBar: AppBar(
         title: Text('Temel Gıda'),
-        backgroundColor: ColorWhite,
+        backgroundColor: AppColor.White,
         textTheme: TextTheme(
           title: TextStyle(
-              color: ColorPrimary,
+              color: AppColor.Primary,
               fontFamily: FontFamily.AvenirMedium,
               fontSize: 16),
         ),
-        iconTheme: IconThemeData(color: ColorPrimary),
+        iconTheme: IconThemeData(color: AppColor.Primary),
       ),
       body: ListView(
         children: <Widget>[
@@ -144,7 +144,7 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen>
                     'Ürünler',
                     fontSize: 16,
                     fontFamily: FontFamily.AvenirHeavy,
-                    color: ColorText,
+                    color: AppColor.Text,
                     linkOnTap: () {
                       consoleLog('Ürünler');
                     },

@@ -17,17 +17,17 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorPrimary,
+      backgroundColor: AppColor.Primary,
       appBar: AppBar(
         title: Text('Bim/Yeşiltepe Mah.'),
-        backgroundColor: ColorWhite,
+        backgroundColor: AppColor.White,
         textTheme: TextTheme(
           title: TextStyle(
-              color: ColorPrimary,
+              color: AppColor.Primary,
               fontFamily: FontFamily.AvenirMedium,
               fontSize: 16),
         ),
-        iconTheme: IconThemeData(color: ColorPrimary),
+        iconTheme: IconThemeData(color: AppColor.Primary),
       ),
       body: ListView(
         children: <Widget>[
@@ -41,7 +41,7 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen> {
                       width: 80,
                       padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        color: ColorWhite,
+                        color: AppColor.White,
                       ),
                       child: Image.asset(
                         'assets/images/del/bim_logo.png',
@@ -56,7 +56,7 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen> {
               child: Text(
                 'Bim/Yeşiltepe Mah.',
                 style: TextStyle(
-                    color: ColorWhite,
+                    color: AppColor.White,
                     fontSize: 16,
                     fontFamily: FontFamily.AvenirHeavy),
               ),
@@ -72,7 +72,7 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen> {
                 PropertyComponent(
                   content: '0312 456 8899',
                   iconName: 'phone',
-                  color: ColorWhite,
+                  color: AppColor.White,
                 ),
                 SizedBox(
                   width: 10,
@@ -80,7 +80,7 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen> {
                 PropertyComponent(
                   content: 'Yeşiltepe Mah. 494. Sok No:5',
                   iconName: 'location_on',
-                  color: ColorWhite,
+                  color: AppColor.White,
                 ),
               ],
             ),
@@ -113,7 +113,7 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen> {
             padding: EdgeInsets.only(top: 30),
             margin: EdgeInsets.only(top: 10),
             decoration: BoxDecoration(
-                color: ColorWhite,
+                color: AppColor.White,
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20))),
@@ -123,7 +123,7 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen> {
                   'Ürünler',
                   fontSize: 16,
                   fontFamily: FontFamily.AvenirHeavy,
-                  color: ColorText,
+                  color: AppColor.Text,
                 ),
 
                 // Tabs

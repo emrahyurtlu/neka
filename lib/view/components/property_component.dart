@@ -16,13 +16,13 @@ class PropertyComponent extends StatelessWidget {
       : iconName = json["iconName"],
         content = json["content"],
         fontSize = 14,
-        color = ColorText,
+        color = AppColor.Text,
         padding = const EdgeInsets.all(0);
 
   PropertyComponent({
     @required this.iconName,
     @required this.content,
-    this.color = ColorText,
+    this.color = AppColor.Text,
     this.fontSize = 14,
     this.padding = const EdgeInsets.only(left: 2),
   })  : assert(iconName != null, "IconName cannot be null"),

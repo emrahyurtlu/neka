@@ -23,14 +23,14 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       appBar: widget.showAppbar
           ? AppBar(
               title: Text('Kategoriler'),
-              backgroundColor: ColorWhite,
+              backgroundColor: AppColor.White,
               textTheme: TextTheme(
                 title: TextStyle(
-                    color: ColorPrimary,
+                    color: AppColor.Primary,
                     fontFamily: FontFamily.AvenirMedium,
                     fontSize: 16),
               ),
-              iconTheme: IconThemeData(color: ColorPrimary),
+              iconTheme: IconThemeData(color: AppColor.Primary),
             )
           : null,
       body: Padding(
@@ -43,7 +43,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 'Kategoriler',
                 fontSize: 16,
                 fontFamily: FontFamily.AvenirHeavy,
-                color: ColorText,
+                color: AppColor.Text,
                 linkOnTap: () {
                   consoleLog('Kategoriler');
                 },

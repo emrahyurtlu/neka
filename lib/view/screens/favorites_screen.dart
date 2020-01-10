@@ -17,9 +17,9 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Favorilerim", style: AppStyle.AppBarTextStyle),
-        backgroundColor: ColorWhite,
+        backgroundColor: AppColor.White,
         centerTitle: false,
-        iconTheme: IconThemeData(color: ColorPrimary),
+        iconTheme: IconThemeData(color: AppColor.Primary),
       ),
       body: SafeArea(
         child: Padding(
@@ -32,7 +32,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                   'Favorilerim',
                   fontSize: 16,
                   fontFamily: FontFamily.AvenirHeavy,
-                  color: ColorText,
+                  color: AppColor.Text,
                   linkOnTap: () {
                     consoleLog('Favorilerim');
                   },

@@ -47,9 +47,9 @@ class _MenuScreenState extends State<MenuScreen> {
               style: TextStyle(
                   fontFamily: FontFamily.AvenirMedium,
                   fontSize: 16,
-                  color: ColorPrimary)),
-          backgroundColor: ColorWhite,
-          iconTheme: IconThemeData(color: ColorPrimary),
+                  color: AppColor.Primary)),
+          backgroundColor: AppColor.White,
+          iconTheme: IconThemeData(color: AppColor.Primary),
         ),
         drawer: DrawerComponent(),
         body: _tabContents[currentTab],

@@ -46,9 +46,9 @@ class _ChangeLocationScreenState extends State<ChangeLocationScreen> {
       key: _scaffoldKey,
       appBar: AppBar(
         title: Text("Konumunuz", style: AppStyle.AppBarTextStyle),
-        backgroundColor: ColorWhite,
+        backgroundColor: AppColor.White,
         centerTitle: false,
-        iconTheme: IconThemeData(color: ColorPrimary),
+        iconTheme: IconThemeData(color: AppColor.Primary),
       ),
       body: SafeArea(
         child: Column(

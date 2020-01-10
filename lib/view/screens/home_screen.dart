@@ -12,6 +12,8 @@ import 'package:neka/utils/string_util.dart';
 import 'package:neka/view/components/category_component.dart';
 import 'package:neka/view/components/header_component.dart';
 import 'package:neka/view/components/product_component.dart';
+import 'package:neka/view/components/search_component.dart';
+import 'package:neka/view/components/search_form_component.dart';
 import 'package:neka/view/screens/categories_screen.dart';
 import 'package:neka/view/screens/category_detail_screen.dart';
 import 'package:neka/view/screens/change_location_screen.dart';
@@ -38,7 +40,8 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
-  final _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  var _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +53,11 @@ class _HomeScreenState extends State<HomeScreen> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                SearchFormComponent(
+                  controller: _searchController,
+                  onPressed: () => consoleLog(_searchController.text),
+                  labelText: 'Ara',
+                ),
                 //Your location
                 Padding(
                     padding: const EdgeInsets.only(top: 20),
@@ -57,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Konumunuz',
                       fontSize: 16,
                       fontFamily: FontFamily.AvenirHeavy,
-                      color: ColorText,
+                      color: AppColor.Text,
                     )),
                 Padding(
                   padding: const EdgeInsets.only(top: 10),
@@ -67,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Icon(
                         Icons.location_on,
                         size: 15,
-                        color: ColorText,
+                        color: AppColor.Text,
                       ),
                       Text(
                         //_addrLabel,
@@ -75,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         style: TextStyle(
                             fontFamily: FontFamily.AvenirBook,
                             fontSize: 14,
-                            color: ColorText),
+                            color: AppColor.Text),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 5),
@@ -88,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               style: TextStyle(
                                   fontFamily: FontFamily.AvenirBook,
                                   fontSize: 14,
-                                  color: ColorSecondary),
+                                  color: AppColor.Secondary),
                             )),
                       ),
                     ],
@@ -104,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         'Kategoriler',
                         fontSize: 16,
                         fontFamily: FontFamily.AvenirHeavy,
-                        color: ColorText,
+                        color: AppColor.Text,
                         link: true,
                         linkOnTap: () {
                           redirectTo(
@@ -179,15 +187,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 //Main Flow
                 Header(
-                  'Fırsatlar',
+                  'Akışınız',
                   link: true,
                   fontSize: 16,
                   fontFamily: FontFamily.AvenirHeavy,
-                  color: ColorText,
-                  linkLabel: 'Filtrele',
+                  color: AppColor.Text,
+                  /*linkLabel: 'Filtrele',
                   linkOnTap: () {
                     consoleLog('Filtrele');
-                  },
+                  },*/
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 10),
@@ -208,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         title: 'Doğuş Filiz Çay 1000gr',
                         image:
-                        'https://productimages.hepsiburada.net/s/19/1500/9830599000114.jpg',
+                            'https://productimages.hepsiburada.net/s/19/1500/9830599000114.jpg',
                         id: 2,
                       ),
                       ProductComponent(
@@ -217,7 +225,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         title: 'Karali Dökme Çay 1000gr',
                         image:
-                        'https://productimages.hepsiburada.net/s/25/500/10114532278322.jpg',
+                            'https://productimages.hepsiburada.net/s/25/500/10114532278322.jpg',
                         id: 3,
                       ),
                       ProductComponent(
@@ -226,7 +234,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         title: 'Lipton Dökme Çay Yellow Label 1000gr',
                         image:
-                        'https://productimages.hepsiburada.net/s/22/1500/9962145841202.jpg',
+                            'https://productimages.hepsiburada.net/s/22/1500/9962145841202.jpg',
                         id: 4,
                       ),
                       ProductComponent(
@@ -235,7 +243,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         title: 'Çaykur Kamelya Çayı 1000gr',
                         image:
-                        'https://productimages.hepsiburada.net/s/25/500/10108396470322.jpg',
+                            'https://productimages.hepsiburada.net/s/25/500/10108396470322.jpg',
                         id: 5,
                       ),
                       ProductComponent(
@@ -244,7 +252,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         title: 'Çaykur Kamelya Çayı 1000gr',
                         image:
-                        'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
+                            'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
                         id: 6,
                       ),
                     ],
@@ -288,5 +296,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ]);
       }
     }
+  }
+
+  void _search(String search) {
+    consoleLog(search);
   }
 }

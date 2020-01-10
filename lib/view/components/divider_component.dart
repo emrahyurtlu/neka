@@ -7,7 +7,7 @@ class DividerComponent extends StatelessWidget {
     return Container(
       height: 1,
       width: double.infinity,
-      color: ColorLight,
+      color: AppColor.Light,
       margin: EdgeInsets.only(left: 10.0, right: 10.0),
     );
   }

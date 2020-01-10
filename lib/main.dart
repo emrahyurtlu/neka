@@ -18,17 +18,26 @@ void main() {
 class Neka extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Neka App',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          primaryColor: ColorPrimary,
-          backgroundColor: ColorWhite,
-          buttonColor: ColorPrimary,
-          accentColor: ColorSecondary,
-          scaffoldBackgroundColor: ColorWhite,
-          fontFamily: FontFamily.AvenirBook),
-      home: MenuScreen(),
+    return GestureDetector(
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+      },
+      child: MaterialApp(
+        title: 'Neka App',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+            primaryColor: AppColor.Primary,
+            backgroundColor: AppColor.White,
+            buttonColor: AppColor.Primary,
+            accentColor: AppColor.Secondary,
+            scaffoldBackgroundColor: AppColor.White,
+            fontFamily: FontFamily.AvenirBook),
+        home: MenuScreen(),
+      ),
     );
   }
 }

@@ -19,7 +19,7 @@ class _BottomNavigationComponentState extends State<BottomNavigationComponent> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       currentIndex: widget.currentIndex,
-      unselectedItemColor: ColorDark,
+      unselectedItemColor: AppColor.Dark,
       showUnselectedLabels: true,
       showSelectedLabels: true,
       selectedFontSize: 13,
@@ -39,8 +39,8 @@ class _BottomNavigationComponentState extends State<BottomNavigationComponent> {
             icon: Icon(Icons.apps), title: Text('Kategoriler')),
         BottomNavigationBarItem(icon: Icon(Icons.search), title: Text('Ara')),
       ],
-      backgroundColor: ColorWhite,
-      selectedItemColor: ColorPrimary,
+      backgroundColor: AppColor.White,
+      selectedItemColor: AppColor.Primary,
     );
   }
 }
