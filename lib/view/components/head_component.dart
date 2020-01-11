@@ -23,32 +23,29 @@ class _HeadComponentState extends State<HeadComponent> {
       children: <Widget>[
         // Active User
         Container(
-          width: 48,
-          height: 48,
+          width: 50,
+          height: 50,
           margin: EdgeInsets.only(right: 10),
           padding: EdgeInsets.all(0),
           child: FlatButton(
             padding: EdgeInsets.all(0),
             shape: RoundedRectangleBorder(
-              borderRadius: new BorderRadius.circular(25.0),
-              //side: BorderSide(color: Colors.red)
+              borderRadius: BorderRadius.circular(25.0),
             ),
             child: ClipOval(
                 child: CachedNetworkImage(
               imageUrl:
                   'https://content-static.upwork.com/uploads/2014/10/02123010/profilephoto_goodcrop.jpg',
-              width: 48,
-              height: 48,
+              width: 46,
+              height: 46,
               placeholder: (context, url) => CircularProgressIndicator(),
               errorWidget: (context, url, error) => Icon(Icons.error),
             )),
             onPressed: () {
               consoleLog("Drawer açılıyor.");
               Scaffold.of(widget.context).openDrawer();
-              // Scaffold.of(context).openDrawer();
-              // _scaffoldKey.currentState.openDrawer();
             },
-            color: AppColor.LightGray,
+            color: AppColor.Primary,
           ),
         ),
 

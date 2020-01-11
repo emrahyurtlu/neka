@@ -4,8 +4,8 @@ import 'package:neka/view/components/drawer_component.dart';
 import 'package:neka/view/screens/categories_screen.dart';
 import 'package:neka/view/screens/home_screen.dart';
 import 'package:neka/view/screens/near_me_screen.dart';
-import 'package:neka/view/screens/search_screen.dart';
 
+import 'add_item_screen.dart';
 import 'home_screen.dart';
 
 class MenuScreen extends StatefulWidget {
@@ -26,7 +26,7 @@ class _MenuScreenState extends State<MenuScreen> {
     HomeScreen(),
     NearMeScreen(),
     CategoriesScreen(),
-    SearchScreen(),
+    AddItemScreen(),
   ];
 
   void onTabTapped(int index) {
@@ -40,15 +40,6 @@ class _MenuScreenState extends State<MenuScreen> {
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
-        /*appBar: AppBar(
-          title: Text('Neka',
-              style: TextStyle(
-                  fontFamily: FontFamily.AvenirMedium,
-                  fontSize: 16,
-                  color: AppColor.Primary)),
-          backgroundColor: AppColor.White,
-          iconTheme: IconThemeData(color: AppColor.Primary),
-        ),*/
         drawer: DrawerComponent(),
         body: Padding(
           padding: const EdgeInsets.only(top: 20),

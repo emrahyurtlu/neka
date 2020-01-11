@@ -20,8 +20,8 @@ class _BottomNavigationComponentState extends State<BottomNavigationComponent> {
     return BottomNavigationBar(
       currentIndex: widget.currentIndex,
       unselectedItemColor: AppColor.Dark,
-      showUnselectedLabels: true,
-      showSelectedLabels: true,
+      showUnselectedLabels: false,
+      showSelectedLabels: false,
       selectedFontSize: 13,
       unselectedFontSize: 13,
       type: BottomNavigationBarType.fixed,
@@ -36,8 +36,13 @@ class _BottomNavigationComponentState extends State<BottomNavigationComponent> {
           title: Text('Keşfet'),
         ),
         BottomNavigationBarItem(
-            icon: Icon(Icons.apps), title: Text('Kategoriler')),
-        BottomNavigationBarItem(icon: Icon(Icons.search), title: Text('Ara')),
+          icon: Icon(Icons.apps),
+          title: Text('Kategoriler')
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.add_circle),
+          title: Text('Ekle')
+        ),
       ],
       backgroundColor: AppColor.White,
       selectedItemColor: AppColor.Primary,

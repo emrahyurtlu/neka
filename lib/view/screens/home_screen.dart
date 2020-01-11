@@ -120,6 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
+                //Categories
                 Container(
                   width: double.infinity,
                   height: 100,
@@ -182,15 +183,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 //Main Flow
                 Header(
-                  'Akışınız',
-                  link: true,
+                  'Güncel',
+                  link: false,
                   fontSize: 16,
                   fontFamily: FontFamily.AvenirHeavy,
                   color: AppColor.Text,
-                  /*linkLabel: 'Filtrele',
-                  linkOnTap: () {
-                    consoleLog('Filtrele');
-                  },*/
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 10),

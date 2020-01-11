@@ -87,28 +87,25 @@ class _ProductComponentState extends State<ProductComponent> {
                   ),
                 ),
                 Spacer(),
-
-// This menu button widget updates a _selection field (of type WhyFarther,
-// not shown here).
                 PopupMenuButton<String>(
-                  //child: Text('Hello'),
                   icon: Icon(Icons.more_horiz),
                   onSelected: (String result) {
+                    consoleLog(result);
                     setState(() {});
                   },
                   itemBuilder: (BuildContext context) =>
                       <PopupMenuEntry<String>>[
                     PopupMenuItem<String>(
-                      value: '',
-                      child: Text('Takip et'),
+                      value: 'Takip ettim.',
+                      child: PropertyComponent(content: "Takip et", iconName: "add_alert")
                     ),
                     PopupMenuItem<String>(
-                      value: '',
-                      child: Text('Şikayet et'),
+                      value: 'Şikayet ettim.',
+                      child: PropertyComponent(content: "Şikayet et", iconName: "gavel"),
                     ),
                     PopupMenuItem<String>(
-                      value: '',
-                      child: Text('Kaydet'),
+                      value: 'Kaydettim.',
+                      child: PropertyComponent(content: "Kaydet", iconName: "bookmark"),
                     ),
                   ],
                 ),
@@ -169,23 +166,6 @@ class _ProductComponentState extends State<ProductComponent> {
                                         fontSize: 15,
                                         color: AppColor.Header),
                                   )),
-                              //Favorite Button
-                              /*Positioned(
-                              width: 30,
-                              height: 30,
-                              child: Container(
-                                color: Colors.white,
-                                child: IconButton(
-                                  icon: favIcon,
-                                  iconSize: 24,
-                                  padding: EdgeInsets.all(0),
-                                  onPressed: _favOnPress,
-                                  color: AppColor.ColorPrimary,
-                                ),
-                              ),
-                              top: 0,
-                              right: 0,
-                            ),*/
                             ],
                           ),
                         ),
@@ -203,7 +183,7 @@ class _ProductComponentState extends State<ProductComponent> {
                                 Image.asset('assets/images/del/bim_logo.png',
                                     width: 30),
                                 Text(
-                                  'Bim/Yeşiltepe',
+                                  'Altunbilekler/Çankaya',
                                   style: TextStyle(
                                       fontFamily: FontFamily.AvenirBook,
                                       fontSize: 14,
@@ -211,7 +191,7 @@ class _ProductComponentState extends State<ProductComponent> {
                                 ),
                                 PropertyComponent(
                                     iconName: 'location_on',
-                                    content: 'Mesafe 3km'),
+                                    content: 'Sana 3km'),
                               ],
                             ),
                           ),
