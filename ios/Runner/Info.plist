@@ -3,10 +3,11 @@
 <plist version="1.0">
 <dict>
     <key>NSLocationAlwaysUsageDescription</key>
-    <string>Needed to access location</string>
+    <string>Neka uygulaması lokasyonunuzu kullanır</string>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Needed to access location</string>
-
+    <string>Neka uygulaması lokasyonunuzu kullanır</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Neka uygulaması ürün barkodu taramak için kameranızı kullanılır.</string>
 
 
 	<key>CFBundleDevelopmentRegion</key>
