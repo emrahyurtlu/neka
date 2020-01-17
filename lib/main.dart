@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
 import 'package:neka/view/screens/menu_screen.dart';
-import 'package:neka/view/screens/test_screen.dart';
 
 import 'settings/colors.dart';
 import 'settings/font_families.dart';

@@ -20,7 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^0.1.2
-  cached_network_image:
+  cached_network_image: ^2.0.0-rc
   flutter_rating_bar: ^1.2.0
   google_maps_flutter: ^0.5.21+12
   geolocator: ^5.1.5

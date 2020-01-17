@@ -96,17 +96,19 @@ class _ProductComponentState extends State<ProductComponent> {
                   itemBuilder: (BuildContext context) =>
                       <PopupMenuEntry<String>>[
                     PopupMenuItem<String>(
-                      value: 'Takip ettim.',
-                      child: PropertyComponent(content: "Takip et", iconName: "add_alert")
-                    ),
+                        value: 'Takip ettim.',
+                        child: PropertyComponent(
+                            content: "Takip et", iconName: "add_alert")),
                     PopupMenuItem<String>(
                       value: 'Şikayet ettim.',
-                      child: PropertyComponent(content: "Şikayet et", iconName: "gavel"),
+                      child: PropertyComponent(
+                          content: "Şikayet et", iconName: "gavel"),
                     ),
-                    PopupMenuItem<String>(
+                    /*PopupMenuItem<String>(
                       value: 'Kaydettim.',
-                      child: PropertyComponent(content: "Kaydet", iconName: "bookmark"),
-                    ),
+                      child: PropertyComponent(
+                          content: "Kaydet", iconName: "bookmark"),
+                    ),*/
                   ],
                 ),
               ],
@@ -239,76 +241,91 @@ class _ProductComponentState extends State<ProductComponent> {
 
             // Footer Actions
             Padding(
-              padding: EdgeInsets.only(left: 5, right: 5, bottom: 5, top: 5),
+              padding: EdgeInsets.only(left: 5, right: 5, bottom: 0, top: 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  InkWell(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(right: 5),
-                          child: Icon(
-                            Icons.thumb_up,
-                            size: 14,
-                            color: AppColor.Dark,
+                  SizedBox(
+                    height: 35,
+                    child: FlatButton(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(right: 5),
+                            child: Icon(
+                              Icons.thumb_up,
+                              size: 14,
+                              color: AppColor.Dark,
+                            ),
                           ),
-                        ),
-                        Text(
-                          'Beğen',
-                          style: TextStyle(color: AppColor.Dark, fontSize: 14),
-                        ),
-                      ],
+                          Text(
+                            'Beğen',
+                            style: TextStyle(color: AppColor.Dark, fontSize: 14),
+                          ),
+                        ],
+                      ),
+                      onPressed: () {
+                        consoleLog("Beğendim");
+                      },
+                      //splashColor: AppColor.Primary,
+                      highlightColor: AppColor.Primary.withOpacity(0.5),
                     ),
-                    onTap: () {
-                      consoleLog("Beğendim");
-                    },
                   ),
-                  InkWell(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(right: 5),
-                          child: Icon(
-                            Icons.insert_comment,
-                            size: 14,
-                            color: AppColor.Dark,
+                  SizedBox(
+                    height: 35,
+                    child: FlatButton(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(right: 5),
+                            child: Icon(
+                              Icons.insert_comment,
+                              size: 14,
+                              color: AppColor.Dark,
+                            ),
                           ),
-                        ),
-                        Text(
-                          'Yorum yap',
-                          style: TextStyle(color: AppColor.Dark, fontSize: 14),
-                        ),
-                      ],
+                          Text(
+                            'Yorum yap',
+                            style: TextStyle(color: AppColor.Dark, fontSize: 14),
+                          ),
+                        ],
+                      ),
+                      onPressed: () {
+                        consoleLog("Yorum yaptım");
+                      },
+                      //splashColor: AppColor.Primary,
+                      highlightColor: AppColor.Primary.withOpacity(0.5),
                     ),
-                    onTap: () {
-                      consoleLog("Yorum yaptım");
-                    },
                   ),
-                  InkWell(
-                    highlightColor: AppColor.Primary,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(right: 5),
-                          child: Icon(
-                            Icons.share,
-                            size: 14,
-                            color: AppColor.Dark,
+                  SizedBox(
+                    height: 35,
+                    child: FlatButton(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(right: 5),
+                            child: Icon(
+                              Icons.favorite,
+                              size: 14,
+                              color: AppColor.Dark,
+                            ),
                           ),
-                        ),
-                        Text(
-                          'Paylaş',
-                          style: TextStyle(color: AppColor.Dark, fontSize: 14),
-                        ),
-                      ],
+                          Text(
+                            'Favori',
+                            style: TextStyle(color: AppColor.Dark, fontSize: 14),
+                          ),
+                        ],
+                      ),
+                      onPressed: () {
+                        consoleLog("Favoriye aldım");
+                      },
+                      //splashColor: AppColor.Primary,
+                      highlightColor: AppColor.Primary.withOpacity(0.5),
                     ),
-                    onTap: () {
-                      consoleLog("Paylaştım");
-                    },
                   ),
                 ],
               ),

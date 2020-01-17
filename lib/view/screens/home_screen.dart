@@ -289,8 +289,4 @@ class _HomeScreenState extends State<HomeScreen> {
       }
     }
   }
-
-  void _search(String search) {
-    consoleLog(search);
-  }
 }

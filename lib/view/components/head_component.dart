@@ -36,8 +36,8 @@ class _HeadComponentState extends State<HeadComponent> {
                 child: CachedNetworkImage(
               imageUrl:
                   'https://content-static.upwork.com/uploads/2014/10/02123010/profilephoto_goodcrop.jpg',
-              width: 46,
-              height: 46,
+              width: 50,
+              height: 50,
               placeholder: (context, url) => CircularProgressIndicator(),
               errorWidget: (context, url, error) => Icon(Icons.error),
             )),

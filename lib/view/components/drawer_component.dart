@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/utils/route_util.dart';
+import 'package:neka/view/screens/cart_screen.dart';
 import 'package:neka/view/screens/favorites_screen.dart';
 import 'package:neka/view/screens/profile_screen.dart';
 
@@ -61,6 +62,13 @@ class _DrawerComponentState extends State<DrawerComponent> {
             title: Text("Favorilerim"),
             onTap: () {
               redirectTo(context, FavoritesScreen());
+            },
+          ),
+          Divider(),
+          ListTile(
+            title: Text("Sepetlerim"),
+            onTap: () {
+              redirectTo(context, CartScreen());
             },
           ),
           /*Divider(),

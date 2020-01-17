@@ -1,6 +1,6 @@
 import 'package:neka/datalayer/helper/database_helper.dart';
 import 'package:neka/datalayer/repos/abstract_base_repo.dart';
-import 'package:neka/models/brand_modle.dart';
+import 'package:neka/models/brand_model.dart';
 
 class BrandRepo implements AbstractBaseRepo<BrandModel> {
   DBHelper _helper = DBHelper();
