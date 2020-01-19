@@ -53,6 +53,7 @@ class _DrawerComponentState extends State<DrawerComponent> {
 
           ListTile(
             title: Text("Profilim"),
+            leading: Icon(Icons.account_circle),
             onTap: () {
               redirectTo(context, ProfileScreen());
             },
@@ -60,6 +61,7 @@ class _DrawerComponentState extends State<DrawerComponent> {
           Divider(),
           ListTile(
             title: Text("Favorilerim"),
+            leading: Icon(Icons.favorite),
             onTap: () {
               redirectTo(context, FavoritesScreen());
             },
@@ -67,6 +69,7 @@ class _DrawerComponentState extends State<DrawerComponent> {
           Divider(),
           ListTile(
             title: Text("Sepetlerim"),
+            leading: Icon(Icons.shopping_cart),
             onTap: () {
               redirectTo(context, CartScreen());
             },
@@ -80,6 +83,7 @@ class _DrawerComponentState extends State<DrawerComponent> {
           //Divider(),
           ListTile(
             title: Text("Çıkış"),
+            leading: Icon(Icons.exit_to_app),
             onTap: () {},
           ),
         ],

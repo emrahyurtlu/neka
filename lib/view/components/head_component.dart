@@ -45,7 +45,7 @@ class _HeadComponentState extends State<HeadComponent> {
               consoleLog("Drawer açılıyor.");
               Scaffold.of(widget.context).openDrawer();
             },
-            color: AppColor.Primary,
+            color: AppColor.LightGray,
           ),
         ),
 
