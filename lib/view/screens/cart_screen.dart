@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
 import 'package:neka/utils/console_log_util.dart';
+import 'package:neka/utils/route_util.dart';
 import 'package:neka/view/components/cart_component.dart';
 import 'package:neka/view/components/head_component.dart';
 import 'package:neka/view/components/header_component.dart';
+import 'package:neka/view/screens/cart_detail_screen.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({Key key}) : super(key: key);
@@ -19,17 +21,6 @@ class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*appBar: AppBar(
-        title: Text('Sepetlerim'),
-        backgroundColor: AppColor.White,
-        textTheme: TextTheme(
-          title: TextStyle(
-              color: AppColor.Primary,
-              fontFamily: FontFamily.AvenirMedium,
-              fontSize: 16),
-        ),
-        iconTheme: IconThemeData(color: AppColor.Primary),
-      ),*/
       body: Padding(
         padding: EdgeInsets.only(right: 5, left: 5, top: 10, bottom: 5),
         child: ListView(
@@ -65,8 +56,11 @@ class _CartScreenState extends State<CartScreen> {
                         width: 70,
                         height: 70,
                         onTap: () {
-                          // redirectTo(context, CategoryDetailScreen());
-                          consoleLog('Sepet: Aylık Sepetim');
+                          redirectTo(
+                              context,
+                              CartDetailScreen(
+                                cartId: 0,
+                              ));
                         },
                       ),
                       CartComponent(
@@ -74,8 +68,11 @@ class _CartScreenState extends State<CartScreen> {
                         width: 70,
                         height: 70,
                         onTap: () {
-                          // redirectTo(context, CategoryDetailScreen());
-                          consoleLog('Sepet: Deterjan Sepetim');
+                          redirectTo(
+                              context,
+                              CartDetailScreen(
+                                cartId: 0,
+                              ));
                         },
                       ),
                       CartComponent(
@@ -83,8 +80,11 @@ class _CartScreenState extends State<CartScreen> {
                         width: 70,
                         height: 70,
                         onTap: () {
-                          // redirectTo(context, CategoryDetailScreen());
-                          consoleLog('Sepet: Kahvaltılık Sepetim');
+                          redirectTo(
+                              context,
+                              CartDetailScreen(
+                                cartId: 0,
+                              ));
                         },
                       ),
                       CartComponent(
@@ -92,8 +92,11 @@ class _CartScreenState extends State<CartScreen> {
                         width: 70,
                         height: 70,
                         onTap: () {
-                          // redirectTo(context, CategoryDetailScreen());
-                          consoleLog('Sepet: Kasap Sepetim');
+                          redirectTo(
+                              context,
+                              CartDetailScreen(
+                                cartId: 0,
+                              ));
                         },
                       ),
                       CartComponent(
@@ -102,7 +105,11 @@ class _CartScreenState extends State<CartScreen> {
                         width: 70,
                         height: 70,
                         onTap: () {
-                          consoleLog('Sepet: Ertelenenler');
+                          redirectTo(
+                              context,
+                              CartDetailScreen(
+                                cartId: 0,
+                              ));
                         },
                       ),
                     ],

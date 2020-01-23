@@ -276,16 +276,16 @@ class _HomeScreenState extends State<HomeScreen> {
         consoleLog(e);
         alert(
             context,
-            'Konum hatası',
             'Konum bilginiz alınamadı. '
-                'Cihazınızın konum servisinin açık olduğundan emin olunuz'
-                '.',
+            'Cihazınızın konum servisinin açık olduğundan emin olunuz'
+            '.',
             <Widget>[
               FlatButton(
                 child: Text('Tamam'),
                 onPressed: () => Navigator.pop(context),
               )
-            ]);
+            ],
+            title: 'Konum hatası');
       }
     }
   }
