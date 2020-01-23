@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neka/view/components/bottom_nav_component.dart';
 import 'package:neka/view/components/drawer_component.dart';
+import 'package:neka/view/screens/cart_screen.dart';
 import 'package:neka/view/screens/categories_screen.dart';
 import 'package:neka/view/screens/home_screen.dart';
 import 'package:neka/view/screens/near_me_screen.dart';
@@ -25,7 +26,7 @@ class _MenuScreenState extends State<MenuScreen> {
   List<Widget> _tabContents = [
     HomeScreen(),
     NearMeScreen(),
-    CategoriesScreen(),
+    CartScreen(),
     AddItemScreen(),
   ];
 

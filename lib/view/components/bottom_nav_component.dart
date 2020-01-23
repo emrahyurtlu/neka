@@ -36,8 +36,8 @@ class _BottomNavigationComponentState extends State<BottomNavigationComponent> {
           title: Text('Keşfet'),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.apps),
-          title: Text('Kategoriler')
+          icon: Icon(Icons.shopping_cart),
+          title: Text('Sepetlerim')
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.add_circle),

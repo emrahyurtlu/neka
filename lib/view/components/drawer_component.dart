@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/utils/route_util.dart';
 import 'package:neka/view/screens/cart_screen.dart';
+import 'package:neka/view/screens/categories_screen.dart';
 import 'package:neka/view/screens/favorites_screen.dart';
 import 'package:neka/view/screens/profile_screen.dart';
 
@@ -60,6 +61,14 @@ class _DrawerComponentState extends State<DrawerComponent> {
           ),
           Divider(),
           ListTile(
+            title: Text("Kategoriler"),
+            leading: Icon(Icons.apps),
+            onTap: () {
+              redirectTo(context, CategoriesScreen(showAppbar: true,));
+            },
+          ),
+          Divider(),
+          ListTile(
             title: Text("Favorilerim"),
             leading: Icon(Icons.favorite),
             onTap: () {
@@ -67,19 +76,19 @@ class _DrawerComponentState extends State<DrawerComponent> {
             },
           ),
           Divider(),
-          ListTile(
+         /* ListTile(
             title: Text("Sepetlerim"),
             leading: Icon(Icons.shopping_cart),
             onTap: () {
               redirectTo(context, CartScreen());
             },
-          ),
+          ),*/
           /*Divider(),
           ListTile(
             title: Text("Bildirimler"),
             onTap: () {},
           ),*/
-          Divider(),
+          //Divider(),
           //Divider(),
           ListTile(
             title: Text("Çıkış"),

@@ -22,7 +22,7 @@ class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
         title: Text('Sepetlerim'),
         backgroundColor: AppColor.White,
         textTheme: TextTheme(
@@ -32,11 +32,15 @@ class _CartScreenState extends State<CartScreen> {
               fontSize: 16),
         ),
         iconTheme: IconThemeData(color: AppColor.Primary),
-      ),
+      ),*/
       body: Padding(
         padding: EdgeInsets.only(right: 5, left: 5, top: 10, bottom: 5),
         child: ListView(
           children: <Widget>[
+            HeadComponent(
+              controller: _searchController,
+              context: context,
+            ),
             Padding(
               padding: const EdgeInsets.only(top: 20, bottom: 10),
               child: Header(
