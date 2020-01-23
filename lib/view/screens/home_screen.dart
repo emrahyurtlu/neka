@@ -197,7 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         onTap: () {
                           consoleLog('Hello');
                         },
-                        title: '5 Adet 500gr  ya da Çaykur  Rize Çayı 1000gr',
+                        title: 'Çaykur  Rize Çayı 1000gr',
                         image:
                             'https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg',
                         id: 1,

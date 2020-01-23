@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
-import 'package:neka/utils/console_log_util.dart';
-import 'package:neka/utils/message_util.dart';
+import 'package:neka/view/components/cart_detail_component.dart';
 import 'package:neka/view/components/head_component.dart';
 import 'package:neka/view/components/header_component.dart';
 
@@ -39,58 +38,11 @@ class _CartDetailScreenState extends State<CartDetailScreen> {
                 color: AppColor.Text,
               ),
             ),
-            Dismissible(
-              child: Container(
-                color: AppColor.Yellow,
-                width: double.infinity,
-                height: 60,
-                padding: EdgeInsets.all(20),
-                child: InkWell(
-                  child: Text(
-                    "Deneme",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: AppColor.Black),
-                  ),
-                  onTap: () => consoleLog("Nesneye tıklandı!"),
-                ),
-              ),
-              key: Key(""),
-              background: slideRightBackground(),
-              secondaryBackground: slideLeftBackground(),
-              onDismissed: (DismissDirection dd) =>
-                  consoleLog("DismissDirection: " + dd.toString()),
-              // ignore: missing_return
-              confirmDismiss: (direction) async {
-                if (direction == DismissDirection.endToStart) {
-                  final bool res = await alert(
-                      context,
-                      "Ertelemek istediğinize emin misiniz?",
-                      <Widget>[
-                        FlatButton(
-                          child: Text(
-                            "İptal",
-                            style: TextStyle(color: Colors.black),
-                          ),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                        FlatButton(
-                          child: Text(
-                            "Ertele",
-                            style: TextStyle(color: Colors.red),
-                          ),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                      ],
-                      title: "Dikkat!");
-                  return res;
-                } else {
-                  // TODO: Navigate to edit page;
-                }
-              },
+            CartDetailComponent(
+              id: 0,
+              title: "Çaykur  Rize Çayı 1000gr",
+              image:
+                  "https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg",
             ),
           ],
         ),
@@ -98,7 +50,7 @@ class _CartDetailScreenState extends State<CartDetailScreen> {
     );
   }
 
-  Widget slideRightBackground() {
+/*Widget slideRightBackground() {
     return Container(
       color: AppColor.Green,
       child: Align(
@@ -154,5 +106,5 @@ class _CartDetailScreenState extends State<CartDetailScreen> {
         alignment: Alignment.centerRight,
       ),
     );
-  }
+  }*/
 }

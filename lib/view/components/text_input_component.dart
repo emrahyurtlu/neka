@@ -13,6 +13,7 @@ class TextInputComponent extends StatefulWidget {
   final Widget icon;
   final Widget prefixIcon;
   final InputBorder border;
+  final TextAlign textAlign;
   ValueChanged<String> onChanged;
 
   TextInputComponent(this.controller,
@@ -28,6 +29,7 @@ class TextInputComponent extends StatefulWidget {
       this.maxLines = 1,
       this.obscureText = false,
       this.enabled = true,
+      this.textAlign = TextAlign.start,
       this.contentPadding =
           const EdgeInsets.only(left: 25, top: 5, bottom: 5, right: 5)});
 
@@ -46,6 +48,7 @@ class _TextInputComponentState extends State<TextInputComponent> {
           Padding(
             padding: EdgeInsets.only(bottom: 0),
             child: TextFormField(
+              textAlign: widget.textAlign,
               controller: widget.controller,
               keyboardType: widget.inputType,
               maxLines: widget.maxLines,
