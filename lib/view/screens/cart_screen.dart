@@ -2,12 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
 import 'package:neka/utils/console_log_util.dart';
-import 'package:neka/utils/route_util.dart';
 import 'package:neka/view/components/cart_component.dart';
-import 'package:neka/view/components/category_component.dart';
 import 'package:neka/view/components/head_component.dart';
 import 'package:neka/view/components/header_component.dart';
-import 'package:neka/view/screens/category_detail_screen.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({Key key}) : super(key: key);
@@ -97,6 +94,15 @@ class _CartScreenState extends State<CartScreen> {
                         onTap: () {
                           // redirectTo(context, CategoryDetailScreen());
                           consoleLog('Sepet: Kasap Sepetim');
+                        },
+                      ),
+                      CartComponent(
+                        title: 'Ertelenenler',
+                        bgColor: AppColor.Secondary,
+                        width: 70,
+                        height: 70,
+                        onTap: () {
+                          consoleLog('Sepet: Ertelenenler');
                         },
                       ),
                     ],

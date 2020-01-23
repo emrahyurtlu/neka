@@ -6,9 +6,10 @@ class CartComponent extends StatelessWidget {
   final String title;
   final VoidCallback onTap;
   final double width, height;
+  final Color bgColor;
 
   const CartComponent(
-      {Key key, this.title, this.onTap, this.width = 60, this.height = 60})
+      {Key key, this.title, this.onTap, this.width = 60, this.height = 60, this.bgColor = AppColor.Primary})
       : super(key: key);
 
   @override
@@ -27,7 +28,7 @@ class CartComponent extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppColor.Primary
+                color: bgColor
               ),
               child: ClipOval(
                   child: SizedBox(
