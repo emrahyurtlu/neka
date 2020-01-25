@@ -26,14 +26,14 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       appBar: widget.showAppbar
           ? AppBar(
               title: Text('Kategoriler'),
-              backgroundColor: AppColor.White,
+        /*backgroundColor: AppColor.White,
               textTheme: TextTheme(
                 title: TextStyle(
                     color: AppColor.Primary,
                     fontFamily: FontFamily.AvenirMedium,
                     fontSize: 16),
               ),
-              iconTheme: IconThemeData(color: AppColor.Primary),
+              iconTheme: IconThemeData(color: AppColor.Primary),*/
             )
           : null,
       body: Padding(

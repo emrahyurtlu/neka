@@ -16,10 +16,10 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Favorilerim", style: AppStyle.AppBarTextStyle),
-        backgroundColor: AppColor.White,
+        title: Text("Favorilerim"),
+        /*backgroundColor: AppColor.White,
         centerTitle: false,
-        iconTheme: IconThemeData(color: AppColor.Primary),
+        iconTheme: IconThemeData(color: AppColor.Primary),*/
       ),
       body: SafeArea(
         child: Padding(

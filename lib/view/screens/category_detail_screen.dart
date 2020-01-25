@@ -37,14 +37,14 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen>
     return Scaffold(
       appBar: AppBar(
         title: Text('Temel Gıda'),
-        backgroundColor: AppColor.White,
+        /*backgroundColor: AppColor.White,
         textTheme: TextTheme(
           title: TextStyle(
               color: AppColor.Primary,
               fontFamily: FontFamily.AvenirMedium,
               fontSize: 16),
         ),
-        iconTheme: IconThemeData(color: AppColor.Primary),
+        iconTheme: IconThemeData(color: AppColor.Primary),*/
       ),
       body: ListView(
         children: <Widget>[

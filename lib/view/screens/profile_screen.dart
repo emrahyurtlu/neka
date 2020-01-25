@@ -42,10 +42,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: Text("Profilim", style: AppStyle.AppBarTextStyle),
-        backgroundColor: AppColor.White,
-        centerTitle: false,
-        iconTheme: IconThemeData(color: AppColor.Primary),
+        title: Text("Profilim"),
       ),
       body: SafeArea(
         child: Container(

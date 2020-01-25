@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/settings/font_families.dart';
+import 'package:neka/utils/console_log_util.dart';
+import 'package:neka/view/components/bottom_sheet_component.dart';
 import 'package:neka/view/components/cart_detail_component.dart';
 import 'package:neka/view/components/head_component.dart';
 import 'package:neka/view/components/header_component.dart';
+import 'package:neka/view/components/search_form_component.dart';
 
 class CartDetailScreen extends StatefulWidget {
   final int cartId;
@@ -38,73 +41,90 @@ class _CartDetailScreenState extends State<CartDetailScreen> {
                 color: AppColor.Text,
               ),
             ),
+            Row(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(left: 70),
+                  child: Text(
+                    "Ürün Adı",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Text(
+                  "Adet",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+
             CartDetailComponent(
-              id: 0,
-              title: "Çaykur  Rize Çayı 1000gr",
+              id: 1,
+              title: "Çaykur Rize Çayı 1000gr",
               image:
                   "https://productimages.hepsiburada.net/s/18/432/9805392773170.jpg",
             ),
+            CartDetailComponent(
+              id: 2,
+              title: "Doğuş Filiz Çay 1000gr",
+              image:
+              "https://productimages.hepsiburada.net/s/19/1500/9830599000114.jpg",
+            ),
+            CartDetailComponent(
+              id: 3,
+              title: "Karali Dökme Çay 1000gr",
+              image:
+              "https://productimages.hepsiburada.net/s/25/500/10114532278322.jpg",
+            ),
+            CartDetailComponent(
+              id: 4,
+              title: "Lipton Dökme Çay Yellow Label 1000gr",
+              image:
+              "https://productimages.hepsiburada.net/s/22/1500/9962145841202.jpg",
+            ),
+            CartDetailComponent(
+              id: 5,
+              title: "Çaykur Kamelya Çayı 1000gr",
+              image:
+              "https://productimages.hepsiburada.net/s/25/500/10108396470322.jpg",
+            ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          Icons.add,
+          color: AppColor.White,
+        ),
+        onPressed: () {
+          consoleLog("Sepete ekle butonuna tıklandı.");
+          openBottomSheet(
+              context,
+              Container(
+                padding: EdgeInsets.all(10),
+                color: AppColor.White,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                    Header(
+                      'Sepete Ürün Ekle',
+                      fontSize: 16,
+                      fontFamily: FontFamily.AvenirHeavy,
+                      color: AppColor.Text,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: SearchFormComponent(
+                        controller: _searchController,
+                        onPressed: () {},
+                        labelText: 'Ürün Ara...',
+                      ),
+                    ),
+                  ],
+                ),
+              ));
+        },
       ),
     );
   }
-
-/*Widget slideRightBackground() {
-    return Container(
-      color: AppColor.Green,
-      child: Align(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            SizedBox(
-              width: 20,
-            ),
-            Icon(
-              Icons.done,
-              color: Colors.white,
-            ),
-            Text(
-              " Tamamla",
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w700,
-              ),
-              textAlign: TextAlign.left,
-            ),
-          ],
-        ),
-        alignment: Alignment.centerLeft,
-      ),
-    );
-  }
-
-  Widget slideLeftBackground() {
-    return Container(
-      color: AppColor.Tertiary,
-      child: Align(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            Icon(
-              Icons.archive,
-              color: Colors.white,
-            ),
-            Text(
-              "Ertele",
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w700,
-              ),
-              textAlign: TextAlign.right,
-            ),
-            SizedBox(
-              width: 20,
-            ),
-          ],
-        ),
-        alignment: Alignment.centerRight,
-      ),
-    );
-  }*/
 }

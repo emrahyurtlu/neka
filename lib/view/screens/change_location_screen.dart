@@ -45,10 +45,10 @@ class _ChangeLocationScreenState extends State<ChangeLocationScreen> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: Text("Konumunuz", style: AppStyle.AppBarTextStyle),
-        backgroundColor: AppColor.White,
+        title: Text("Konumunuz"),
+        /*backgroundColor: AppColor.White,
         centerTitle: false,
-        iconTheme: IconThemeData(color: AppColor.Primary),
+        iconTheme: IconThemeData(color: AppColor.Primary),*/
       ),
       body: SafeArea(
         child: Column(

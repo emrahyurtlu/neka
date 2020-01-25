@@ -41,10 +41,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: Text("Üye Olun", style: AppStyle.AppBarTextStyle),
-        backgroundColor: AppColor.White,
-        centerTitle: false,
-        iconTheme: IconThemeData(color: AppColor.Primary),
+        title: Text("Üye Olun"),
       ),
       body: SafeArea(
         child: Container(

@@ -24,6 +24,9 @@ class _CartDetailComponentState extends State<CartDetailComponent> {
   @override
   void initState() {
     quantityController = TextEditingController();
+    setState(() {
+      quantityController.text = "1";
+    });
     cbState = false;
     super.initState();
   }
@@ -34,102 +37,114 @@ class _CartDetailComponentState extends State<CartDetailComponent> {
       child: Container(
         width: double.infinity,
         height: 50,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            //Checkbox
-            Container(
-              width: 30,
-              height: 50,
-              child: Center(
-                child: Checkbox(
-                  value: cbState,
-                  onChanged: (bool value) {
+        margin: EdgeInsets.only(top: 5, bottom: 5),
+        child: Table(
+          columnWidths: {
+            0: FixedColumnWidth(10),
+            1: FixedColumnWidth(40),
+            2: IntrinsicColumnWidth(),
+            3: FixedColumnWidth(35),
+          },
+          children: <TableRow>[
+            TableRow(children: <Widget>[
+              TableCell(
+                child: //Checkbox
+                Container(
+                  width: 30,
+                  height: 50,
+                  child: Center(
+                    child: Checkbox(
+                      value: cbState,
+                      onChanged: (bool value) {
+                        setState(() {
+                          cbState = value;
+                        });
+                      },
+                    ),
+                  ),
+                ),
+              ),
+              TableCell(
+                child: //Image from Network
+                InkWell(
+                  child: Container(
+                    width: 40,
+                    height: 50,
+                    child: Center(
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: CachedNetworkImage(
+                            imageUrl: widget.image,
+                            width: 50,
+                            height: 50,
+                            fit: BoxFit.cover,
+                            placeholder: (context, url) =>
+                                CircularProgressIndicator(),
+                            errorWidget: (context, url, error) =>
+                                Icon(Icons.error),
+                          )),
+                    ),
+                  ),
+                  onTap: () {
                     setState(() {
-                      cbState = value;
+                      cbState = !cbState;
                     });
                   },
                 ),
               ),
-            ),
-
-            //Image from Network
-            InkWell(
-              child: Container(
-                width: 40,
-                height: 50,
-                child: Center(
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: CachedNetworkImage(
-                        imageUrl: widget.image,
-                        width: 50,
-                        height: 50,
-                        fit: BoxFit.cover,
-                        placeholder: (context, url) =>
-                            CircularProgressIndicator(),
-                        errorWidget: (context, url, error) => Icon(Icons.error),
-                      )),
+              TableCell(
+                child: //Product Title
+                InkWell(
+                  child: Container(
+                    height: 50,
+                    child: Center(
+                      child: Text(
+                        widget.title,
+                        overflow: TextOverflow.fade,
+                        softWrap: true,
+                        maxLines: 2,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontFamily: FontFamily.AvenirMedium,
+                            fontSize: 15,
+                            color: AppColor.Text,
+                            decoration: cbState
+                                ? TextDecoration.lineThrough
+                                : TextDecoration.none),
+                      ),
+                    ),
+                  ),
+                  onTap: () {
+                    setState(() {
+                      cbState = !cbState;
+                    });
+                  },
                 ),
               ),
-              onTap: () {
-                setState(() {
-                  cbState = !cbState;
-                });
-              },
-            ),
-
-            //Product Title
-            InkWell(
-              child: Container(
-                height: 50,
-                child: Center(
-                  child: Text(
-                    widget.title,
-                    overflow: TextOverflow.fade,
-                    softWrap: true,
-                    maxLines: 2,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontFamily: FontFamily.AvenirMedium,
-                        fontSize: 15,
-                        color: AppColor.Text,
-                        decoration: cbState
-                            ? TextDecoration.lineThrough
-                            : TextDecoration.none),
+              TableCell(
+                child: //Quantity
+                Container(
+                  width: 35,
+                  height: 50,
+                  //margin: EdgeInsets.only(left: 10),
+                  child: Center(
+                    child: TextInputComponent(
+                      quantityController,
+                      inputType: TextInputType.number,
+                      textAlign: TextAlign.center,
+                      contentPadding: EdgeInsets.all(0),
+                      enabled: cbState == false,
+                    ),
                   ),
                 ),
               ),
-              onTap: () {
-                setState(() {
-                  cbState = !cbState;
-                });
-              },
-            ),
-
-            //Quantity
-            Container(
-              width: 40,
-              height: 50,
-              //margin: EdgeInsets.only(left: 10),
-              child: Center(
-                child: TextInputComponent(
-                  quantityController,
-                  inputType: TextInputType.number,
-                  textAlign: TextAlign.center,
-                  contentPadding: EdgeInsets.all(0),
-                  enabled: cbState == false,
-                ),
-              ),
-            ),
+            ]),
           ],
         ),
       ),
       key: Key(widget.id.toString()),
       background: slideRightBackground(),
       secondaryBackground: slideLeftBackground(),
-      /*onDismissed: (DismissDirection dd) =>
-          consoleLog("DismissDirection: " + dd.toString()),*/
       // ignore: missing_return
       confirmDismiss: (direction) async {
         if (direction == DismissDirection.endToStart) {

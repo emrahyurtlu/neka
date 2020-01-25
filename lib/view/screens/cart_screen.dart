@@ -22,7 +22,7 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(right: 5, left: 5, top: 10, bottom: 5),
+        padding: EdgeInsets.only(right: 5, left: 5, top: 5, bottom: 5),
         child: ListView(
           children: <Widget>[
             HeadComponent(

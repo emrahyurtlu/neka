@@ -20,14 +20,15 @@ class _BusinessDetailScreenState extends State<BusinessDetailScreen> {
       backgroundColor: AppColor.Primary,
       appBar: AppBar(
         title: Text('Bim/Yeşiltepe Mah.'),
-        backgroundColor: AppColor.White,
+        elevation: 5,
+        /*backgroundColor: AppColor.White,
         textTheme: TextTheme(
           title: TextStyle(
               color: AppColor.Primary,
               fontFamily: FontFamily.AvenirMedium,
               fontSize: 16),
         ),
-        iconTheme: IconThemeData(color: AppColor.Primary),
+        iconTheme: IconThemeData(color: AppColor.Primary),*/
       ),
       body: ListView(
         children: <Widget>[
