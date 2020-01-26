@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "913853003972",
+    "firebase_url": "https://neka-app.firebaseio.com",
+    "project_id": "neka-app",
+    "storage_bucket": "neka-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913853003972:android:71835799062b4b7b773191",
+        "android_client_info": {
+          "package_name": "com.neka.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "913853003972-5d02nehqsfcqu9phopr6nsa0m2ab2i6g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-A-lJNA4HVbDbnVfjzX3x5sB7AqrngYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "913853003972-5d02nehqsfcqu9phopr6nsa0m2ab2i6g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

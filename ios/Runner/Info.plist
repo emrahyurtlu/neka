@@ -8,6 +8,8 @@
     <string>Neka uygulaması lokasyonunuzu kullanır</string>
     <key>NSCameraUsageDescription</key>
     <string>Neka uygulaması ürün barkodu taramak için kameranızı kullanılır.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Alışveriş fişinizi/faturanızı sisteme yüklemek için galerinize ulaşmamız gerekir.</string>
 
 
 	<key>CFBundleDevelopmentRegion</key>

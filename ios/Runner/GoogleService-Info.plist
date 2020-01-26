@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>913853003972-adkd5h70kndk6lmfq23jjsrf6ht2pr48.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.913853003972-adkd5h70kndk6lmfq23jjsrf6ht2pr48</string>
+	<key>API_KEY</key>
+	<string>AIzaSyALtZrMj5FMo9K7Q9dx_U5ZLGCpUvsjTZQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>913853003972</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.neka.app</string>
+	<key>PROJECT_ID</key>
+	<string>neka-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>neka-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:913853003972:ios:45a572c08db17d2c773191</string>
+	<key>DATABASE_URL</key>
+	<string>https://neka-app.firebaseio.com</string>
+</dict>
+</plist>
