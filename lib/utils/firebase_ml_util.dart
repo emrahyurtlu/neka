@@ -44,7 +44,7 @@ Future<String> mlReadText() async {
     final List<RecognizedLanguage> languages = block.recognizedLanguages;
 
     for (TextLine line in block.lines) {
-      print("Line.Text: " + line.text);
+      //print("Line.Text: " + line.text);
       // Same getters as TextBlock
       for (TextElement element in line.elements) {
         // Same getters as TextBlock
