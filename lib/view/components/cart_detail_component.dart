@@ -40,10 +40,10 @@ class _CartDetailComponentState extends State<CartDetailComponent> {
         margin: EdgeInsets.only(top: 5, bottom: 5),
         child: Table(
           columnWidths: {
-            0: FixedColumnWidth(10),
-            1: FixedColumnWidth(40),
-            2: IntrinsicColumnWidth(),
-            3: FixedColumnWidth(35),
+            0: MinColumnWidth(FixedColumnWidth(5), FixedColumnWidth(10)),
+            1: MinColumnWidth(FixedColumnWidth(30), FixedColumnWidth(35)),
+            2: MinColumnWidth(FixedColumnWidth(250), FixedColumnWidth(350)),
+            3: MinColumnWidth(FixedColumnWidth(10), FixedColumnWidth(15)),
           },
           children: <TableRow>[
             TableRow(children: <Widget>[
@@ -97,21 +97,20 @@ class _CartDetailComponentState extends State<CartDetailComponent> {
                 InkWell(
                   child: Container(
                     height: 50,
-                    child: Center(
-                      child: Text(
-                        widget.title,
-                        overflow: TextOverflow.fade,
-                        softWrap: true,
-                        maxLines: 2,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontFamily: FontFamily.AvenirMedium,
-                            fontSize: 15,
-                            color: AppColor.Text,
-                            decoration: cbState
-                                ? TextDecoration.lineThrough
-                                : TextDecoration.none),
-                      ),
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      widget.title,
+                      overflow: TextOverflow.fade,
+                      softWrap: true,
+                      maxLines: 2,
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          fontFamily: FontFamily.AvenirMedium,
+                          fontSize: 15,
+                          color: AppColor.Text,
+                          decoration: cbState
+                              ? TextDecoration.lineThrough
+                              : TextDecoration.none),
                     ),
                   ),
                   onTap: () {

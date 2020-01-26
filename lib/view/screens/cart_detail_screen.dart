@@ -23,7 +23,7 @@ class _CartDetailScreenState extends State<CartDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Sepet Detayı")),
+      appBar: AppBar(title: Text("Aylık Sepetim")),
       body: Padding(
         padding: EdgeInsets.only(right: 5, left: 5, top: 10, bottom: 5),
         child: ListView(
@@ -31,8 +31,9 @@ class _CartDetailScreenState extends State<CartDetailScreen> {
             HeadComponent(
               controller: _searchController,
               context: context,
+              margin: EdgeInsets.only(right: 10),
             ),
-            Padding(
+            /*Padding(
               padding: const EdgeInsets.only(top: 20, bottom: 10),
               child: Header(
                 'Aylık Sepetim',
@@ -40,23 +41,39 @@ class _CartDetailScreenState extends State<CartDetailScreen> {
                 fontFamily: FontFamily.AvenirHeavy,
                 color: AppColor.Text,
               ),
-            ),
-            Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 70),
-                  child: Text(
-                    "Ürün Adı",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+            ),*/
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Table(columnWidths: {
+                0: MinColumnWidth(FixedColumnWidth(5), FixedColumnWidth(10)),
+                1: MinColumnWidth(FixedColumnWidth(30), FixedColumnWidth(35)),
+                2: MinColumnWidth(FixedColumnWidth(250), FixedColumnWidth(350)),
+                3: MinColumnWidth(FixedColumnWidth(10), FixedColumnWidth(15)),
+              }, children: <TableRow>[
+                TableRow(children: <Widget>[
+                  TableCell(
+                    child: Text(""),
                   ),
-                ),
-                Text(
-                  "Adet",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ],
+                  TableCell(
+                    child: Text(""),
+                  ),
+                  TableCell(
+                    child: Text(
+                      "Ürün Adı",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  TableCell(
+                    child: Center(
+                      child: Text(
+                        "Adet",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ]),
+              ]),
             ),
-
             CartDetailComponent(
               id: 1,
               title: "Çaykur Rize Çayı 1000gr",
@@ -67,7 +84,7 @@ class _CartDetailScreenState extends State<CartDetailScreen> {
               id: 2,
               title: "Doğuş Filiz Çay 1000gr",
               image:
-              "https://productimages.hepsiburada.net/s/19/1500/9830599000114.jpg",
+                  "https://productimages.hepsiburada.net/s/19/1500/9830599000114.jpg",
             ),
             CartDetailComponent(
               id: 3,

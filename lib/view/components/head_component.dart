@@ -7,8 +7,15 @@ import 'package:neka/view/components/search_form_component.dart';
 class HeadComponent extends StatefulWidget {
   final TextEditingController controller;
   final BuildContext context;
+  final EdgeInsetsGeometry padding;
+  final EdgeInsetsGeometry margin;
 
-  const HeadComponent({Key key, @required this.controller, @required this.context})
+  const HeadComponent(
+      {Key key,
+      @required this.controller,
+      @required this.context,
+      this.padding = const EdgeInsets.all(0),
+      this.margin = const EdgeInsets.only(right: 10)})
       : super(key: key);
 
   @override
@@ -16,7 +23,6 @@ class HeadComponent extends StatefulWidget {
 }
 
 class _HeadComponentState extends State<HeadComponent> {
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -25,8 +31,8 @@ class _HeadComponentState extends State<HeadComponent> {
         Container(
           width: 50,
           height: 50,
-          margin: EdgeInsets.only(right: 10),
-          padding: EdgeInsets.all(0),
+          margin: widget.margin,
+          padding: widget.padding,
           child: FlatButton(
             padding: EdgeInsets.all(0),
             shape: RoundedRectangleBorder(
@@ -34,9 +40,9 @@ class _HeadComponentState extends State<HeadComponent> {
             ),
             child: ClipOval(
                 child: CachedNetworkImage(
-              imageUrl:
+                  imageUrl:
                   'https://content-static.upwork.com/uploads/2014/10/02123010/profilephoto_goodcrop.jpg',
-              width: 50,
+                  width: 50,
               height: 50,
               placeholder: (context, url) => CircularProgressIndicator(),
               errorWidget: (context, url, error) => Icon(Icons.error),
