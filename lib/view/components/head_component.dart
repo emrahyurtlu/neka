@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:neka/settings/colors.dart';
 import 'package:neka/utils/console_log_util.dart';
+import 'package:neka/utils/message_util.dart';
 import 'package:neka/view/components/search_form_component.dart';
 
 class HeadComponent extends StatefulWidget {
@@ -42,7 +44,7 @@ class _HeadComponentState extends State<HeadComponent> {
                 child: CachedNetworkImage(
                   imageUrl:
                   'https://content-static.upwork.com/uploads/2014/10/02123010/profilephoto_goodcrop.jpg',
-                  width: 50,
+              width: 50,
               height: 50,
               placeholder: (context, url) => CircularProgressIndicator(),
               errorWidget: (context, url, error) => Icon(Icons.error),
@@ -82,8 +84,11 @@ class _HeadComponentState extends State<HeadComponent> {
               width: 48,
               height: 48,
             ),
-            onPressed: () {
+            onPressed: () async {
               consoleLog("Barkod taranıyor.");
+              String result = await FlutterBarcodeScanner.scanBarcode(
+                  "#662FBF", "İptal", true, ScanMode.BARCODE);
+              alert(context, result, []);
             },
             color: AppColor.Primary,
           ),

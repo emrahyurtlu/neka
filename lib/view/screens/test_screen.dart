@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:neka/business/location_service.dart';
 import 'package:neka/datalayer/repos/favorite_repo.dart';
-import 'package:neka/utils/connectivity_util.dart';
-import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 class TestScreen extends StatefulWidget {
   @override
@@ -42,9 +41,13 @@ class _TestScreenState extends State<TestScreen> {
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: () async {
-                String result = await FlutterBarcodeScanner.scanBarcode("#662FBF", "İptal", true, ScanMode.BARCODE);
+                String result3 = await FlutterBarcodeScanner.scanBarcode(
+                    "#662FBF", "İptal", true, ScanMode.BARCODE);
+
+                //var result = await readBarcode();
                 setState(() {
-                  _result = result.toString();
+                  //_result = result.toString();
+                  _result = result3.toString();
                 });
               },
             ),
